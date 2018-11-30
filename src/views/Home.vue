@@ -1,13 +1,13 @@
 <template>
-  <HelloWorld />
+  <Avatar />
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+import Avatar from '../components/Avatar.vue';
 
-  export default {
-    components: {
-      HelloWorld
-    }
-  }
+export default {
+  components: {
+    Avatar,
+  },
+};
 </script>

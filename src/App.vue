@@ -1,38 +1,35 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
+  <v-app id="inspire" dark>
+    <v-navigation-drawer clipped fixed v-model="drawer" app>
+      <Form/>
+    </v-navigation-drawer>
+    <v-toolbar app fixed clipped-left>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Application</v-toolbar-title>
     </v-toolbar>
-
     <v-content>
-      <HelloWorld/>
+      <v-container fluid>
+        <router-view/>
+      </v-container>
     </v-content>
+    <v-footer app fixed>
+      <span>&copy; 2017</span>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Form from '@/components/Form.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    Form,
   },
-  data () {
+  name: 'App',
+  data() {
     return {
-      //
-    }
-  }
-}
+      drawer: true,
+    };
+  },
+};
 </script>
