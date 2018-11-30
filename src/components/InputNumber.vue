@@ -1,9 +1,9 @@
 <template>
   <v-layout row wrap>
-    <v-flex>
-      <v-slider :label="label" v-model="formValue" :max="max"></v-slider>
-    </v-flex>
-    <v-flex>
+    <div class="slider">
+      <v-slider :label="label" v-model="formValue" :max="max" :min="min"></v-slider>
+    </div>
+    <div class="input">
       <v-text-field
       v-model="formValue"
         class="mt-0"
@@ -11,13 +11,13 @@
         single-line
         type="number"
       ></v-text-field>
-    </v-flex>
+    </div>
   </v-layout>
 </template>
 
 <script>
 export default {
-  props: ['value', 'label', 'max'],
+  props: ['value', 'label', 'max', 'min'],
   computed: {
     formValue: {
       get() {
@@ -31,3 +31,14 @@ export default {
 
 };
 </script>
+<style>
+.slider {
+  width: 70%;
+  display: inline-block;
+}
+.input {
+  width: 30%;
+  display: inline-block;
+}
+
+</style>
