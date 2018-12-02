@@ -1,16 +1,17 @@
 <template>
-  <v-layout row wrap>
+  <v-layout>
+    <label class="label">{{label}}</label>
     <div class="slider">
-      <v-slider :label="label" v-model="formValue" :max="max" :min="min"></v-slider>
+      <input type="range" v-model="formValue" :max="max" :min="min"/>
     </div>
     <div class="input">
-      <v-text-field
+      <input
       v-model="formValue"
         class="mt-0"
         hide-details
         single-line
         type="number"
-      ></v-text-field>
+      />
     </div>
   </v-layout>
 </template>
@@ -24,7 +25,7 @@ export default {
         return this.value;
       },
       set(value) {
-        this.$emit('input', value);
+        this.$emit('input', Number(value));
       },
     },
   },
@@ -32,6 +33,9 @@ export default {
 };
 </script>
 <style>
+.label {
+}
+
 .slider {
   width: 70%;
   display: inline-block;

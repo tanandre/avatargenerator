@@ -9,37 +9,52 @@
 -->
 <script>
 export default {
+  computed: {
+    startX() {
+      return (
+        (this.$store.state.frame.dimensions.width
+          - this.$store.state.face.eyes.wide.value)
+        / 2
+      );
+    },
+  },
   render(h) {
+    const eyes = this.$store.state.face.eyes;
+
     return h('g', [
       h('ellipse', {
         attrs: {
-          cx: 150,
-          cy: (this.$store.state.frame.dimensions.height / 2) + this.$store.state.face.eyes.offsetY.value,
-          rx: this.$store.state.face.eyes.outerWidth.value,
-          ry: this.$store.state.face.eyes.outerHeight.value,
+          cx: this.startX,
+          cy: (this.$store.state.frame.dimensions.height / 2) + eyes.offsetY.value,
+          rx: eyes.outerWidth.value,
+          ry: eyes.outerHeight.value,
+          fill: eyes.outerColor,
+          strokeWidth: '8px',
+          stroke: eyes.outerColor,
         },
       }), h('ellipse', {
         attrs: {
-          cx: 155,
-          cy: (this.$store.state.frame.dimensions.height / 2) + this.$store.state.face.eyes.offsetY.value - 5,
-          rx: this.$store.state.face.eyes.innerWidth.value,
-          ry: this.$store.state.face.eyes.innerHeight.value,
-          fill: '#fff',
+          cx: this.startX + 5,
+          cy: (this.$store.state.frame.dimensions.height / 2) + eyes.offsetY.value - 5,
+          rx: eyes.innerWidth.value,
+          ry: eyes.innerHeight.value,
+          fill: eyes.innerColor,
         },
       }), h('ellipse', {
         attrs: {
-          cx: 250,
-          cy: (this.$store.state.frame.dimensions.height / 2) + this.$store.state.face.eyes.offsetY.value,
-          rx: this.$store.state.face.eyes.outerWidth.value,
-          ry: this.$store.state.face.eyes.outerHeight.value,
+          cx: this.startX + eyes.wide.value,
+          cy: (this.$store.state.frame.dimensions.height / 2) + eyes.offsetY.value,
+          rx: eyes.outerWidth.value,
+          ry: eyes.outerHeight.value,
+          fill: eyes.outerColor,
         },
       }), h('ellipse', {
         attrs: {
-          cx: 255,
-          cy: (this.$store.state.frame.dimensions.height / 2) + this.$store.state.face.eyes.offsetY.value - 5,
-          rx: this.$store.state.face.eyes.innerWidth.value,
-          ry: this.$store.state.face.eyes.innerHeight.value,
-          fill: '#fff',
+          cx: this.startX + eyes.wide.value + 5,
+          cy: (this.$store.state.frame.dimensions.height / 2) + eyes.offsetY.value - 5,
+          rx: eyes.innerWidth.value,
+          ry: eyes.innerHeight.value,
+          fill: eyes.innerColor,
         },
       }),
     ]);
