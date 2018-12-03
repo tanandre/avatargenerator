@@ -1,4 +1,7 @@
-function toValue(value, min, max, maxFnc) {
+function toValue(value, _min, _max, maxFnc) {
+  const max = typeof _max === 'function' ? _max : () => _max;
+  const min = typeof _min === 'function' ? _min : () => _min;
+
   return {
     value,
     min,
@@ -14,9 +17,9 @@ function rnd(start, end) {
 export default {
   state: {
     head: {
-      height: toValue(79, 20, 200),
+      height: toValue(79, 20, 120),
       width: toValue(200, 100, 200),
-      chin: toValue(150, 70, 200),
+      chin: toValue(150, 110, 200),
       top: toValue(80, 10, 100),
       offsetY: toValue(0, -50, 50),
       color: '#F0C7B1',
@@ -28,18 +31,18 @@ export default {
       innerWidth: toValue(6, 2, 20, state => state.eyes.outerWidth.value),
       innerHeight: toValue(6, 2, 20, state => state.eyes.outerHeight.value),
       innerColor: '#000',
-      offsetY: toValue(0, -50, 50),
-      wide: toValue(90, 5, 200, state => state.head.width.value - 50),
-    },
-    mouth: {
-      width: toValue(60, 10, 150),
-      height: toValue(40, 10, 100),
-      offsetY: toValue(0, -50, 50),
+      offsetY: toValue(0, -50, 20),
+      wide: toValue(90, 10, 200, state => state.head.width.value - 50),
     },
     nose: {
       width: toValue(10, 10, 50),
       height: toValue(10, 10, 50),
-      offsetY: toValue(0, -50, 50),
+      offsetY: toValue(0, -20, 30),
+    },
+    mouth: {
+      width: toValue(60, 10, 150, state => state.head.width.value - 50),
+      height: toValue(40, 10, 100),
+      offsetY: toValue(0, -50, 40),
     },
     ears: {
       width: toValue(30, 10, 50),
@@ -58,16 +61,21 @@ export default {
       const clone = Object.assign({}, state);
       Object.entries(clone.head).forEach((entry) => {
         if (entry[1].value) {
-          const newValue = rnd(entry[1].min, entry[1].max);
+          const newValue = rnd(entry[1].min(), entry[1].max(state));
           entry[1].value = newValue;
         }
       });
 
-      Object.entries(clone.eyes).forEach((entry) => {
-        if (entry[1].value) {
-          const max = entry[1].maxFnc ? entry[1].maxFnc(state) : entry[1].max;
+
+      // const entries = [].concat([clone.eyes, clone.mout, clone.ears, clone.nose].map(e => Object.entries(e)));
+      const entries = Object.entries(clone.eyes).concat(Object.entries(clone.mouth), Object.entries(clone.ears), Object.entries(clone.nose));
+
+      entries.forEach((entry) => {
+        console.log(entry[0], entry[1].value);
+        if (entry[1].value !== undefined) {
+          const max = entry[1].maxFnc ? entry[1].maxFnc(state) : entry[1].max(state);
           console.log(entry[0], max, entry[1].maxFnc);
-          const newValue = rnd(entry[1].min, max);
+          const newValue = rnd(entry[1].min(), max);
           entry[1].value = newValue;
         }
       });
