@@ -39,19 +39,19 @@ export default {
         },
       }), h('ellipse', {
         attrs: {
-          cx: this.startX + 5,
-          cy: this.startY - 5,
-          rx: eyes.innerWidth.value,
-          ry: eyes.innerHeight.value,
-          fill: eyes.innerColor,
-        },
-      }), h('ellipse', {
-        attrs: {
           cx: this.startX + eyes.wide.value,
           cy: this.startY,
           rx: eyes.outerWidth.value,
           ry: eyes.outerHeight.value,
           fill: eyes.outerColor,
+        },
+      }), h('ellipse', {
+        attrs: {
+          cx: this.startX + 5,
+          cy: this.startY - 5,
+          rx: eyes.innerWidth.value,
+          ry: eyes.innerHeight.value,
+          fill: eyes.innerColor,
         },
       }), h('ellipse', {
         attrs: {
