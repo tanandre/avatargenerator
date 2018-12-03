@@ -5,7 +5,7 @@
     </v-navigation-drawer>
     <v-toolbar app fixed >
       <v-toolbar-title></v-toolbar-title>
-      <v-btn class="primary" @click="$store.dispatch('generate')">Generate [g]</v-btn>
+      <v-btn class="primary" @click="generateAvatar">Generate [g]</v-btn>
     </v-toolbar>
     <v-content>
       <v-container fluid>
@@ -17,6 +17,10 @@
 
 <script>
 import Form from '@/components/Form.vue';
+
+function rnd(start, end) {
+  return Math.floor(start + Math.random() * (end - start + 1));
+}
 
 export default {
   components: {
@@ -35,7 +39,12 @@ export default {
       if (event.defaultPrevented || event.target.nodeName === 'INPUT') {
         return;
       }
-      this.$store.dispatch('generate');
+      if (event.key === 'g') {
+        this.generateAvatar();
+      }
+    },
+    generateAvatar() {
+      this.$router.push({ name: 'avatar', params: { id: rnd(0, Number.MAX_SAFE_INTEGER) } });
     },
   },
 };

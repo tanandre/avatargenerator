@@ -1,3 +1,5 @@
+import { Randomizer, randomWithSeed } from '@/util/Randomizer';
+
 function toValue(value, _min, _max) {
   const max = typeof _max === 'function' ? _max : () => _max;
   const min = typeof _min === 'function' ? _min : () => _min;
@@ -51,8 +53,8 @@ export default {
       width: toValue(60, 20, state => state.head.width.value - 50),
       height: toValue(40, 10, 50),
       offsetY: toValue(60,
-        state => state.nose.offsetY.value + state.nose.height.value / 2 + state.mouth.height.value / 2,
-        state => state.nose.offsetY.value + state.nose.height.value + 40),
+        state => state.nose.offsetY.value + state.nose.height.value / 2 + state.mouth.height.value / 2 + 5,
+        state => state.nose.offsetY.value + state.nose.height.value + state.head.height.value / 2 + state.head.chin.value / 4),
     },
     ears: {
       width: toValue(30, 10, 50),
@@ -72,12 +74,12 @@ export default {
     },
   },
   actions: {
-    generate({ commit, state }) {
-      // const clone = { ...state };
+    generate({ commit, state }, id) {
+      const randomizer = new Randomizer(id);
       const clone = Object.assign({}, state);
       Object.entries(clone.head).forEach((entry) => {
         if (entry[1].value) {
-          const newValue = rnd(entry[1].min(state), entry[1].max(state));
+          const newValue = randomizer.next(entry[1].min(state), entry[1].max(state));
           entry[1].value = newValue;
         }
       });
@@ -88,7 +90,7 @@ export default {
         // console.log(entry[0], entry[1].value);
         if (entry[1].value !== undefined) {
           const max = entry[1].max(state);
-          const newValue = rnd(entry[1].min(state), max);
+          const newValue = randomizer.next(entry[1].min(state), max);
           // console.log(entry[0], newValue);
           entry[1].value = newValue;
         }
@@ -96,8 +98,8 @@ export default {
 
       const skinColors = ['#f0c7b1', 'rgb(233, 181, 150)', 'rgb(115, 71, 43)', 'rgb(242, 171, 150)', 'rgb(150, 100, 74)', 'rgb(217, 160, 136)', 'rgb(175, 105, 53)'];
 
-      commit('skinColor', skinColors[rnd(0, skinColors.length - 1)]);
-      commit('hairColor', `#${((1 << 24) * Math.random() | 0).toString(16)}`);
+      commit('skinColor', skinColors[randomizer.next(0, skinColors.length - 1)]);
+      commit('hairColor', `#${((1 << 24) * randomWithSeed(id) | 0).toString(16)}`);
     },
   },
 };

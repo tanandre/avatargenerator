@@ -4,12 +4,19 @@ import Home from './views/Home.vue';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      redirect: '/avatar/1',
+    },
+    {
+      path: '/avatar/:id',
+      name: 'avatar',
       component: Home,
     },
   ],
 });
+
+
+export default router;
