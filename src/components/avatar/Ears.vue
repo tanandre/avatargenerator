@@ -19,17 +19,26 @@ export default {
   },
   render(h) {
     const ears = this.$store.state.face.ears;
+    const wide = 10;
 
     return h('g', [
       h('path', {
         attrs: {
-          d: `M ${this.startX} ${this.startY} c -${ears.width.value / 2} 0, -${ears.width.value} -${ears.height.value}, 0 -${ears.height.value}`,
+          d: `M ${this.startX + wide} ${this.startY} 
+          h-${wide}
+          c -${ears.width.value / 2} 0, 
+            -${ears.width.value} -${ears.height.value}, 
+            0 -${ears.height.value}`,
           stroke: 'black',
           'stroke-width': '3',
         },
       }), h('path', {
         attrs: {
-          d: `M ${this.startX + this.$store.state.face.head.width.value} ${this.startY} c ${ears.width.value / 2} 0, ${ears.width.value} -${ears.height.value}, 0 -${ears.height.value}`,
+          d: `M ${this.startX - wide + this.$store.state.face.head.width.value} ${this.startY} 
+          h${wide}
+          c ${ears.width.value / 2} 0, 
+            ${ears.width.value} -${ears.height.value}, 
+            0 -${ears.height.value}`,
           stroke: 'black',
           'stroke-width': '3',
         },

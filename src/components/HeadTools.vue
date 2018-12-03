@@ -14,7 +14,7 @@
           />
           <input v-else-if="typeof $store.state.face[objName][itemName] === 'string'" v-model="$store.state.face[objName][itemName]"/>
 
-          <div v-else>{{item}}</div>
+          <div v-else class="warning">{{item}}</div>
         </div>
       </v-card-text>
     </v-card>
@@ -30,3 +30,8 @@ export default {
   },
 };
 </script>
+<style>
+.warning {
+  color: red;
+}
+</style>
