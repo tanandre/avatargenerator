@@ -21,7 +21,7 @@ export default {
     const nose = this.$store.state.face.nose;
     const noseType0 = h('path', {
       attrs: {
-        d: `m ${this.startX} ${this.startY} c 0 ${nose.height.value}, ${nose.width.value} ${nose.height.value}, ${nose.width.value} 0`,
+        d: `m ${this.startX} ${this.startY} c 0 ${nose.height.value / 2}, ${nose.width.value} ${nose.height.value / 2}, ${nose.width.value} 0`,
         stroke: 'black',
         fill: 'transparent',
         'stroke-width': '3',

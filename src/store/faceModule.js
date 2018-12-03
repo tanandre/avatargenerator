@@ -1,4 +1,4 @@
-import { Randomizer, randomWithSeed } from '@/util/Randomizer';
+import Randomizer from '@/util/Randomizer';
 
 function toValue(value, _min, _max) {
   const max = typeof _max === 'function' ? _max : () => _max;
@@ -11,20 +11,16 @@ function toValue(value, _min, _max) {
   };
 }
 
-function rnd(start, end) {
-  return Math.floor(start + Math.random() * (end - start + 1));
-}
-
 export default {
   state: {
     head: {
-      height: toValue(79, 20, 120),
-      width: toValue(200, 110, 200),
+      height: toValue(79, 30, 120),
+      width: toValue(200, 150, 200),
       chin: toValue(150,
         state => 160 - state.head.height.value / 2,
         state => 230 - state.head.height.value / 2),
-      top: toValue(80, 10, 100),
-      offsetY: toValue(0, -50, 30),
+      top: toValue(80, 50, 100),
+      offsetY: toValue(0, -0, 0),
       color: '#F0C7B1',
     },
     eyes: {
@@ -47,21 +43,22 @@ export default {
       height: toValue(10, 10, 50),
       offsetY: toValue(10,
         state => state.eyes.offsetY.value + state.eyes.outerHeight.value + state.nose.height.value / 2,
-        state => state.eyes.offsetY.value + state.eyes.outerHeight.value + 30),
+        state => state.eyes.offsetY.value + state.eyes.outerHeight.value + state.head.height.value / 2 + state.head.chin.value / 4 - 30),
     },
     mouth: {
       width: toValue(60, 20, state => state.head.width.value - 50),
       height: toValue(40, 10, 50),
       offsetY: toValue(60,
         state => state.nose.offsetY.value + state.nose.height.value / 2 + state.mouth.height.value / 2 + 5,
-        state => state.nose.offsetY.value + state.nose.height.value + state.head.height.value / 2 + state.head.chin.value / 4),
+        state => state.head.height.value / 2 + state.head.chin.value / 2),
     },
     ears: {
-      width: toValue(30, 10, 50),
+      width: toValue(30, 10, 30),
       height: toValue(40, 10, 50),
       offsetY: toValue(0, -20, 20),
     },
     hair: {
+      type: toValue(0, 0, 1),
       color: 'brown',
     },
   },
@@ -84,7 +81,7 @@ export default {
         }
       });
 
-      const entries = [].concat(...[clone.eyes, clone.nose, clone.mouth, clone.ears].map(e => Object.entries(e)));
+      const entries = [].concat(...[clone.eyes, clone.nose, clone.mouth, clone.ears, clone.hair].map(e => Object.entries(e)));
 
       entries.forEach((entry) => {
         // console.log(entry[0], entry[1].value);
@@ -97,9 +94,10 @@ export default {
       });
 
       const skinColors = ['#f0c7b1', 'rgb(233, 181, 150)', 'rgb(115, 71, 43)', 'rgb(242, 171, 150)', 'rgb(150, 100, 74)', 'rgb(217, 160, 136)', 'rgb(175, 105, 53)'];
+      const hairColors = ['#701919', '#262222', '#FEEF60', '#C36D20', '#000', '#CB0D05', '#CB9905', '#C8B8D1'];
 
       commit('skinColor', skinColors[randomizer.next(0, skinColors.length - 1)]);
-      commit('hairColor', `#${((1 << 24) * randomWithSeed(id) | 0).toString(16)}`);
+      commit('hairColor', hairColors[randomizer.next(0, hairColors.length - 1)]);
     },
   },
 };
