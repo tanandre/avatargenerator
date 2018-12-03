@@ -94,7 +94,7 @@ export default {
         }
       });
 
-      const skinColors = ['#f0c7b1', 'rgb(233, 185, 149)', 'rgb(118, 70, 48)', 'rgb(245, 175, 149)', 'rgb(147, 97, 74)', 'rgb(218, 164, 136)', 'rgb(179, 106, 51)'];
+      const skinColors = ['#f0c7b1', 'rgb(233, 181, 150)', 'rgb(115, 71, 43)', 'rgb(242, 171, 150)', 'rgb(150, 100, 74)', 'rgb(217, 160, 136)', 'rgb(175, 105, 53)'];
 
       commit('skinColor', skinColors[rnd(0, skinColors.length - 1)]);
       commit('hairColor', `#${((1 << 24) * Math.random() | 0).toString(16)}`);

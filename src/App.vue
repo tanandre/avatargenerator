@@ -5,7 +5,7 @@
     </v-navigation-drawer>
     <v-toolbar app fixed >
       <v-toolbar-title></v-toolbar-title>
-      <v-btn class="primary" @click="$store.dispatch('generate')">Generate</v-btn>
+      <v-btn class="primary" @click="$store.dispatch('generate')">Generate [g]</v-btn>
     </v-toolbar>
     <v-content>
       <v-container fluid>
@@ -26,6 +26,17 @@ export default {
   data() {
     return {
     };
+  },
+  mounted() {
+    window.addEventListener('keydown', this.onKeyDown);
+  },
+  methods: {
+    onKeyDown(event) {
+      if (event.defaultPrevented || event.target.nodeName === 'INPUT') {
+        return;
+      }
+      this.$store.dispatch('generate');
+    },
   },
 };
 </script>
