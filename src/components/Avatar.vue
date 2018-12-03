@@ -1,21 +1,30 @@
 <template>
-    <svg :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" class="svg">
+    <svg :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" class="svg" :fill="$store.state.face.head.color">
       <Head />
+      <Ears />
       <Eyes />
+      <Nose />
       <Mouth />
+      <Hair />
     </svg>
 </template>
 
 <script>
-import Head from './Head.vue';
-import Eyes from './Eyes.vue';
-import Mouth from './Mouth.vue';
+import Head from '@/components/avatar/Head.vue';
+import Eyes from '@/components/avatar/Eyes.vue';
+import Mouth from '@/components/avatar/Mouth.vue';
+import Nose from '@/components/avatar/Nose.vue';
+import Hair from '@/components/avatar/Hair.vue';
+import Ears from '@/components/avatar/Ears.vue';
 
 export default {
   components: {
     Head,
     Eyes,
     Mouth,
+    Nose,
+    Hair,
+    Ears,
   },
   computed: {
     startX() {

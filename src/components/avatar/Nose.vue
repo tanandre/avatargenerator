@@ -4,29 +4,29 @@ export default {
     startX() {
       return (
         (this.$store.state.frame.dimensions.width
-          - this.$store.state.face.mouth.width.value)
+          - this.$store.state.face.nose.width.value)
         / 2
       );
     },
     startY() {
       return (
         (this.$store.state.frame.dimensions.height
-          - this.$store.state.face.mouth.height.value)
+          - this.$store.state.face.nose.height.value)
           / 2
-        + this.$store.state.face.mouth.offsetY.value + 80
+        + this.$store.state.face.nose.offsetY.value + 60
       );
     },
   },
   render(h) {
-    const mouth = this.$store.state.face.mouth;
+    const nose = this.$store.state.face.nose;
 
     return h('g', [
       h('path', {
         attrs: {
-          d: `M ${this.startX} ${this.startY} c 0 ${mouth.height.value}, ${mouth.width.value} ${mouth.height.value}, ${mouth.width.value} 0 Z`,
+          d: `m ${this.startX} ${this.startY} c 0 ${nose.height.value}, ${nose.width.value} ${nose.height.value}, ${nose.width.value} 0`,
           stroke: 'black',
+          fill: 'transparent',
           'stroke-width': '3',
-          fill: 'white',
         },
       }),
     ]);

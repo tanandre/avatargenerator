@@ -17,6 +17,12 @@ export default {
         / 2
       );
     },
+    startY() {
+      return (
+        (this.$store.state.frame.dimensions.height / 2)
+        + this.$store.state.face.eyes.offsetY.value + 15
+      );
+    },
   },
   render(h) {
     const eyes = this.$store.state.face.eyes;
@@ -25,17 +31,16 @@ export default {
       h('ellipse', {
         attrs: {
           cx: this.startX,
-          cy: (this.$store.state.frame.dimensions.height / 2) + eyes.offsetY.value,
+          cy: this.startY,
           rx: eyes.outerWidth.value,
           ry: eyes.outerHeight.value,
           fill: eyes.outerColor,
-          strokeWidth: '8px',
           stroke: eyes.outerColor,
         },
       }), h('ellipse', {
         attrs: {
           cx: this.startX + 5,
-          cy: (this.$store.state.frame.dimensions.height / 2) + eyes.offsetY.value - 5,
+          cy: this.startY - 5,
           rx: eyes.innerWidth.value,
           ry: eyes.innerHeight.value,
           fill: eyes.innerColor,
@@ -43,7 +48,7 @@ export default {
       }), h('ellipse', {
         attrs: {
           cx: this.startX + eyes.wide.value,
-          cy: (this.$store.state.frame.dimensions.height / 2) + eyes.offsetY.value,
+          cy: this.startY,
           rx: eyes.outerWidth.value,
           ry: eyes.outerHeight.value,
           fill: eyes.outerColor,
@@ -51,7 +56,7 @@ export default {
       }), h('ellipse', {
         attrs: {
           cx: this.startX + eyes.wide.value + 5,
-          cy: (this.$store.state.frame.dimensions.height / 2) + eyes.offsetY.value - 5,
+          cy: this.startY - 5,
           rx: eyes.innerWidth.value,
           ry: eyes.innerHeight.value,
           fill: eyes.innerColor,
