@@ -66,6 +66,9 @@ export default {
     hairColor(state, value) {
       state.hair.color = value;
     },
+    skinColor(state, value) {
+      state.head.color = value;
+    },
   },
   actions: {
     generate({ commit, state }) {
@@ -78,8 +81,7 @@ export default {
         }
       });
 
-      // const entries = [].concat([clone.eyes, clone.mout, clone.ears, clone.nose].map(e => Object.entries(e)));
-      const entries = Object.entries(clone.eyes).concat(Object.entries(clone.nose), Object.entries(clone.mouth), Object.entries(clone.ears));
+      const entries = [].concat(...[clone.eyes, clone.nose, clone.mouth, clone.ears].map(e => Object.entries(e)));
 
       entries.forEach((entry) => {
         console.log(entry[0], entry[1].value);
@@ -91,6 +93,9 @@ export default {
         }
       });
 
+      const skinColors = ['#f0c7b1', 'rgb(233, 185, 149)', 'rgb(118, 70, 48)', 'rgb(245, 175, 149)', 'rgb(147, 97, 74)', 'rgb(218, 164, 136)', 'rgb(179, 106, 51)'];
+
+      commit('skinColor', skinColors[rnd(0, skinColors.length - 1)]);
       commit('hairColor', `#${((1 << 24) * Math.random() | 0).toString(16)}`);
     },
   },
