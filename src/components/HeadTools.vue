@@ -15,12 +15,13 @@
 
 
         <InputNumber
-        v-if="$store.state.face[objName][itemName].value !== undefined"
+          v-if="$store.state.face[objName][itemName].value !== undefined"
             v-model="$store.state.face[objName][itemName].value"
             :label="itemName"
             :max="$store.state.face[objName][itemName].max($store.state.face)"
             :min="$store.state.face[objName][itemName].min($store.state.face)"
           />
+          <input v-else-if="typeof $store.state.face[objName][itemName] === 'string'" v-model="$store.state.face[objName][itemName]"/>
 
           <div v-else>{{item}}</div>
         </div>

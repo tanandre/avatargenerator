@@ -19,6 +19,7 @@ export default {
   },
   render(h) {
     const head = this.$store.state.face.head;
+    const hair = this.$store.state.face.hair;
 
     return h('g', [
       h('path', {
@@ -30,7 +31,7 @@ export default {
           Z`,
           stroke: 'black',
           'stroke-width': '3',
-          fill: 'brown',
+          fill: hair.color,
         },
       }),
     ]);
