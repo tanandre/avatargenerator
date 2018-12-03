@@ -1,20 +1,17 @@
 <template>
   <v-app id="inspire" dark>
-    <v-navigation-drawer clipped fixed v-model="drawer" app>
+    <v-navigation-drawer  fixed app>
       <Form/>
     </v-navigation-drawer>
-    <v-toolbar app fixed clipped-left>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Avatar Generator</v-toolbar-title>
+    <v-toolbar app fixed >
+      <v-toolbar-title></v-toolbar-title>
+      <v-btn class="primary" @click="$store.dispatch('generate')">Generate</v-btn>
     </v-toolbar>
     <v-content>
       <v-container fluid>
         <router-view/>
       </v-container>
     </v-content>
-    <v-footer app fixed>
-      <span>&copy; 2017</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -28,7 +25,6 @@ export default {
   name: 'App',
   data() {
     return {
-      drawer: true,
     };
   },
 };
