@@ -1,12 +1,3 @@
-<!-- <template>
-  <g>
-    <ellipse cx="150" cy="200" rx="15" ry="10"/>
-    <ellipse cx="155" cy="195" rx="3" ry="5" fill="#fff"/>
-    <ellipse cx="250" cy="200" rx="15" ry="10"/>
-    <ellipse cx="255" cy="195" rx="3" ry="5" fill="#fff"/>
-  </g>
-</template>
--->
 <script>
 export default {
   computed: {
@@ -20,7 +11,7 @@ export default {
     startY() {
       return (
         (this.$store.state.frame.dimensions.height / 2)
-        + this.$store.state.face.eyes.offsetY.value + 15
+        + this.$store.state.face.eyes.offsetY.value
       );
     },
   },

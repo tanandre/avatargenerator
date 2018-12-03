@@ -18,8 +18,8 @@
         v-if="$store.state.face[objName][itemName].value !== undefined"
             v-model="$store.state.face[objName][itemName].value"
             :label="itemName"
-            :max="$store.state.face[objName][itemName].max()"
-            :min="$store.state.face[objName][itemName].min()"
+            :max="$store.state.face[objName][itemName].max($store.state.face)"
+            :min="$store.state.face[objName][itemName].min($store.state.face)"
           />
 
           <div v-else>{{item}}</div>

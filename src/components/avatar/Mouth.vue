@@ -13,7 +13,7 @@ export default {
         (this.$store.state.frame.dimensions.height
           - this.$store.state.face.mouth.height.value)
           / 2
-        + this.$store.state.face.mouth.offsetY.value + 120
+        + this.$store.state.face.mouth.offsetY.value
       );
     },
   },
