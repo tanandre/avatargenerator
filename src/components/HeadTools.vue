@@ -5,15 +5,6 @@
         <h3>{{objName}}</h3>
 
         <div v-for="(item, itemName) in obj" :key="itemName">
-          <InputNumber
-            v-if="typeof item === 'number'"
-            v-model="$store.state.face[objName][itemName]"
-            :label="itemName"
-            max="400"
-            min="-100"
-          />
-
-
         <InputNumber
           v-if="$store.state.face[objName][itemName].value !== undefined"
             v-model="$store.state.face[objName][itemName].value"

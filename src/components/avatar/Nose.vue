@@ -19,16 +19,30 @@ export default {
   },
   render(h) {
     const nose = this.$store.state.face.nose;
+    const noseType0 = h('path', {
+      attrs: {
+        d: `m ${this.startX} ${this.startY} c 0 ${nose.height.value}, ${nose.width.value} ${nose.height.value}, ${nose.width.value} 0`,
+        stroke: 'black',
+        fill: 'transparent',
+        'stroke-width': '3',
+      },
+    });
+    const width = nose.width.value / 2;
+    const height = nose.height.value / 2;
+    const noseType1 = h('ellipse', {
+      attrs: {
+        cx: this.startX + width,
+        cy: this.startY + height,
+        rx: width,
+        ry: height,
+        stroke: 'black',
+        'stroke-width': '3',
+        //        stroke: eyes.outerColor,
+      },
+    });
 
     return h('g', [
-      h('path', {
-        attrs: {
-          d: `m ${this.startX} ${this.startY} c 0 ${nose.height.value}, ${nose.width.value} ${nose.height.value}, ${nose.width.value} 0`,
-          stroke: 'black',
-          fill: 'transparent',
-          'stroke-width': '3',
-        },
-      }),
+      nose.type.value === 0 ? noseType0 : noseType1,
     ]);
   },
 };

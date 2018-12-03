@@ -1,7 +1,7 @@
 <template>
     <svg :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" class="svg" :fill="$store.state.face.head.color">
-      <Head />
       <Ears />
+      <Head />
       <Eyes />
       <Nose />
       <Mouth />
