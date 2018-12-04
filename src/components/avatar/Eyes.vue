@@ -16,7 +16,7 @@ export default {
     },
   },
   render(h) {
-    const eyes = this.$store.state.face.eyes;
+    const { eyes } = this.$store.state.face;
 
     return h('g', [
       h('ellipse', {

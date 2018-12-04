@@ -18,7 +18,7 @@ export default {
     },
   },
   render(h) {
-    const ears = this.$store.state.face.ears;
+    const { ears } = this.$store.state.face;
     const wide = 10;
 
     return h('g', [

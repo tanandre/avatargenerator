@@ -1,14 +1,3 @@
-<template>
-  <path
-    :d="`m${startX} ${startY} v${$store.state.face.head.height.value}
-      c 0 ${$store.state.face.head.chin.value}, ${$store.state.face.head.width.value} ${$store.state.face.head.chin.value}, ${$store.state.face.head.width.value} 0 v-${$store.state.face.head.height.value}
-      c 0 -${$store.state.face.head.top.value}, -${$store.state.face.head.width.value} -${$store.state.face.head.top.value}, -${$store.state.face.head.width.value} 0Z`"
-    stroke="black"
-    stroke-width="4"
-    :fill="$store.state.face.head.color"
-  />
-</template>
-
 <script>
 export default {
   computed: {
@@ -27,6 +16,22 @@ export default {
         + this.$store.state.face.head.offsetY.value
       );
     },
+  },
+  render(h) {
+    const { head } = this.$store.state.face;
+
+    return h('g', [
+      h('path', {
+        attrs: {
+          d: `m${this.startX} ${this.startY} v${head.height.value}
+          c 0 ${head.chin.value}, ${head.width.value} ${head.chin.value}, ${head.width.value} 0 v-${head.height.value}
+          c 0 -${head.top.value}, -${head.width.value} -${head.top.value}, -${head.width.value} 0Z`,
+          stroke: 'black',
+          'stroke-width': '3',
+          fill: head.color,
+        },
+      }),
+    ]);
   },
 };
 </script>

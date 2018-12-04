@@ -1,11 +1,14 @@
 <template>
     <svg :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" class="svg" :fill="$store.state.face.head.color">
+      <CustomPath :path="$store.state.face.customPath2"/>
+      <HairBack/>
       <Ears />
       <Head />
       <Eyes />
       <Nose />
       <Mouth />
       <Hair />
+      <CustomPath :path="$store.state.face.customPath1"/>
     </svg>
 </template>
 
@@ -15,7 +18,9 @@ import Eyes from '@/components/avatar/Eyes.vue';
 import Mouth from '@/components/avatar/Mouth.vue';
 import Nose from '@/components/avatar/Nose.vue';
 import Hair from '@/components/avatar/Hair.vue';
+import HairBack from '@/components/avatar/HairBack.vue';
 import Ears from '@/components/avatar/Ears.vue';
+import CustomPath from '@/components/avatar/CustomPath.vue';
 
 export default {
   components: {
@@ -24,7 +29,9 @@ export default {
     Mouth,
     Nose,
     Hair,
+    HairBack,
     Ears,
+    CustomPath,
   },
   computed: {
     startX() {

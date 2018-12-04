@@ -18,7 +18,7 @@ export default {
     },
   },
   render(h) {
-    const nose = this.$store.state.face.nose;
+    const { nose } = this.$store.state.face;
     const noseType0 = h('path', {
       attrs: {
         d: `m ${this.startX} ${this.startY} c 0 ${nose.height.value / 2}, ${nose.width.value} ${nose.height.value / 2}, ${nose.width.value} 0`,

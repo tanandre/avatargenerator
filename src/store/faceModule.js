@@ -14,12 +14,12 @@ function toValue(value, _min, _max) {
 export default {
   state: {
     head: {
-      height: toValue(79, 30, 120),
+      height: toValue(79, 30, 100),
       width: toValue(200, 150, 200),
       chin: toValue(150,
         state => 160 - state.head.height.value / 2,
         state => 230 - state.head.height.value / 2),
-      top: toValue(80, 50, 100),
+      top: toValue(80, 70, 100),
       offsetY: toValue(0, -0, 0),
       color: '#F0C7B1',
     },
@@ -58,9 +58,11 @@ export default {
       offsetY: toValue(0, -20, 20),
     },
     hair: {
-      type: toValue(0, 0, 1),
+      type: toValue(0, 0, 0),
       color: 'brown',
     },
+    customPath1: '',
+    customPath2: '',
   },
   mutations: {
     hairColor(state, value) {

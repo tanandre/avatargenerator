@@ -18,7 +18,7 @@ export default {
     },
   },
   render(h) {
-    const mouth = this.$store.state.face.mouth;
+    const { mouth } = this.$store.state.face;
 
     return h('g', [
       h('path', {
