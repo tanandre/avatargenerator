@@ -23,8 +23,8 @@ export default {
         attrs: {
           cx: this.startX,
           cy: this.startY,
-          rx: eyes.outerWidth.value,
-          ry: eyes.outerHeight.value,
+          rx: eyes.outerWidth.value / 2,
+          ry: eyes.outerHeight.value / 2,
           fill: eyes.outerColor,
           stroke: eyes.outerColor,
         },
@@ -32,24 +32,24 @@ export default {
         attrs: {
           cx: this.startX + eyes.wide.value,
           cy: this.startY,
-          rx: eyes.outerWidth.value,
-          ry: eyes.outerHeight.value,
+          rx: eyes.outerWidth.value / 2,
+          ry: eyes.outerHeight.value / 2,
           fill: eyes.outerColor,
         },
       }), h('ellipse', {
         attrs: {
           cx: this.startX + 5,
           cy: this.startY - 5,
-          rx: eyes.innerWidth.value,
-          ry: eyes.innerHeight.value,
+          rx: eyes.innerWidth.value / 2,
+          ry: eyes.innerHeight.value / 2,
           fill: eyes.innerColor,
         },
       }), h('ellipse', {
         attrs: {
           cx: this.startX + eyes.wide.value + 5,
           cy: this.startY - 5,
-          rx: eyes.innerWidth.value,
-          ry: eyes.innerHeight.value,
+          rx: eyes.innerWidth.value / 2,
+          ry: eyes.innerHeight.value / 2,
           fill: eyes.innerColor,
         },
       }),

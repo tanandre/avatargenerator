@@ -1,28 +1,22 @@
 <script>
 export default {
   computed: {
-    startX() {
-      return (
-        (this.$store.state.frame.dimensions.width
-          - this.$store.state.face.eyes.wide.value)
-        / 2
-        - this.$store.state.face.eyes.outerWidth.value
-      );
-    },
     startY() {
       return (
         (this.$store.state.frame.dimensions.height / 2)
         + this.$store.state.face.eyes.offsetY.value
-        - this.$store.state.face.eyes.outerHeight.value - 5
+        - this.$store.state.face.eyes.outerHeight.value / 2 - 5
       );
     },
   },
   render(h) {
     const { brows, eyes } = this.$store.state.face;
+    const startXLeft = (this.$store.state.frame.dimensions.width - this.$store.state.face.eyes.wide.value) / 2 - this.$store.state.face.eyes.outerWidth.value / 2;
+    const startXRight = (this.$store.state.frame.dimensions.width - this.$store.state.face.eyes.wide.value) / 2 + this.$store.state.face.eyes.outerWidth.value / 2;
 
     const browStyles = [
-      [`M${this.startX} ${this.startY} c 10 -10 20 -10 30 0`,
-        `M${this.startX + eyes.wide.value} ${this.startY} c 10 -10 20 -10 30 0`,
+      [`M${startXLeft} ${this.startY} c 5 -10 ${eyes.outerWidth.value - 5} -10 ${eyes.outerWidth.value} 0`,
+        `M${startXRight + this.$store.state.face.eyes.wide.value} ${this.startY} c -5 -10 -${eyes.outerWidth.value - 5} -10 -${eyes.outerWidth.value} 0`,
       ],
     ];
 
