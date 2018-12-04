@@ -1,14 +1,14 @@
 <template>
     <svg :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" class="svg" :fill="$store.state.face.head.color">
       <CustomPath :path="$store.state.face.customPath2"/>
-      <HairBack/>
-      <Ears />
-      <Head />
-      <Eyes />
-      <Brows />
-      <Nose />
-      <Mouth />
-      <Hair />
+      <HairBack v-if="$store.state.face.hair.show"/>
+      <Ears v-if="$store.state.face.ears.show"/>
+      <Head v-if="$store.state.face.head.show" />
+      <Eyes v-if="face.eyes.show"/>
+      <Brows v-if="face.brows.show" />
+      <Nose v-if="face.nose.show"/>
+      <Mouth v-if="face.mouth.show"/>
+      <Hair v-if="face.hair.show"/>
       <CustomPath :path="$store.state.face.customPath1"/>
     </svg>
 </template>
@@ -37,6 +37,9 @@ export default {
     CustomPath,
   },
   computed: {
+    face() {
+      return this.$store.state.face;
+    },
     startX() {
       return (this.$store.state.frame.dimensions.width - this.$store.state.face.head.width) / 2;
     },

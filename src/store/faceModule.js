@@ -14,6 +14,7 @@ function toValue(value, _min, _max) {
 export default {
   state: {
     head: {
+      show: true,
       height: toValue(50, 30, 100),
       width: toValue(180, 150, 200),
       chin: toValue(180,
@@ -24,9 +25,11 @@ export default {
       color: '#F0C7B1',
     },
     brows: {
+      show: true,
       type: toValue(0, 0, 0),
     },
     eyes: {
+      show: true,
       outerWidth: toValue(30, 16, 40),
       outerHeight: toValue(30, 16, 40),
       outerColor: '#FFF',
@@ -41,6 +44,7 @@ export default {
         state => state.head.width.value - 40 - state.eyes.outerWidth.value),
     },
     nose: {
+      show: true,
       type: toValue(0, 0, 1),
       width: toValue(20, 10, 50),
       height: toValue(20, 10, 50),
@@ -49,6 +53,7 @@ export default {
         state => state.eyes.offsetY.value + state.eyes.outerHeight.value + state.head.height.value / 2 + state.head.chin.value / 4 - 30),
     },
     mouth: {
+      show: true,
       width: toValue(60, 20, state => state.head.width.value - 50),
       height: toValue(40, 10, 50),
       offsetY: toValue(90,
@@ -56,11 +61,13 @@ export default {
         state => state.head.height.value / 2 + state.head.chin.value / 2),
     },
     ears: {
+      show: true,
       width: toValue(30, 10, 30),
       height: toValue(40, 10, 50),
       offsetY: toValue(0, -20, 20),
     },
     hair: {
+      show: true,
       type: toValue(0, 0, 0),
       color: 'brown',
     },

@@ -4,7 +4,7 @@
       <v-card-text>
         <h3>{{objName}}</h3>
 
-        <div v-for="(item, itemName) in obj" :key="itemName">
+        <div class="item" v-for="(item, itemName) in obj" :key="itemName">
         <InputNumber
           v-if="$store.state.face[objName][itemName].value !== undefined"
             v-model="$store.state.face[objName][itemName].value"
@@ -13,7 +13,7 @@
             :min="$store.state.face[objName][itemName].min($store.state.face)"
           />
           <input v-else-if="typeof $store.state.face[objName][itemName] === 'string'" v-model="$store.state.face[objName][itemName]"/>
-
+          <input type="checkbox" v-else-if="typeof $store.state.face[objName][itemName] === 'boolean'" v-model="$store.state.face[objName][itemName]"/>
           <div v-else class="warning">{{item}}</div>
         </div>
       </v-card-text>
@@ -33,5 +33,12 @@ export default {
 <style>
 .warning {
   color: red;
+}
+input[type=checkbox] {
+  transform: scale(2);
+  margin: 0 15px;
+}
+h3, .item {
+  display: inline;
 }
 </style>
