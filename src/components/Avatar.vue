@@ -5,6 +5,7 @@
       <Ears />
       <Head />
       <Eyes />
+      <Brows />
       <Nose />
       <Mouth />
       <Hair />
@@ -20,11 +21,13 @@ import Nose from '@/components/avatar/Nose.vue';
 import Hair from '@/components/avatar/Hair.vue';
 import HairBack from '@/components/avatar/HairBack.vue';
 import Ears from '@/components/avatar/Ears.vue';
+import Brows from '@/components/avatar/Brows.vue';
 import CustomPath from '@/components/avatar/CustomPath.vue';
 
 export default {
   components: {
     Head,
+    Brows,
     Eyes,
     Mouth,
     Nose,
