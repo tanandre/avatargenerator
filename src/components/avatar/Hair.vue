@@ -35,7 +35,6 @@ export default {
     const hstartX = this.startX + head.width.value / 4;
     const partHeadWidth = head.width.value / 4 * 3 / 2;
     const partHeadHeight = head.height.value + head.top.value + head.chin.value;
-    console.log('partHeadHeight', partHeadHeight);
 
     const hairStyles = [
       [`M ${hstartX} ${this.startY} 

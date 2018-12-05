@@ -3,8 +3,7 @@
     <v-card v-for="(obj, objName) in $store.state.face" :key="objName">
       <v-card-text>
         <h3>{{objName}}</h3>
-
-        <div class="item" v-for="(item, itemName) in obj" :key="itemName">
+        <div class="item" v-if="typeof $store.state.face[objName] === 'object'" v-for="(item, itemName) in obj" :key="itemName">
         <InputNumber
           v-if="$store.state.face[objName][itemName].value !== undefined"
             v-model="$store.state.face[objName][itemName].value"

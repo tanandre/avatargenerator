@@ -31,7 +31,6 @@ export default {
 
     const hstartX = this.startX + head.width.value / 4;
 
-    console.log('render hb');
     const hairStyles = [
       /* type 0 */
       [`M${hstartX} ${this.startY} 
