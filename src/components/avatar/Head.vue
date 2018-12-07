@@ -24,8 +24,9 @@ export default {
       h('path', {
         attrs: {
           d: `m${this.startX} ${this.startY} v${head.height.value}
-          c 0 ${head.chin.value}, ${head.width.value} ${head.chin.value}, ${head.width.value} 0 v-${head.height.value}
-          c 0 -${head.top.value}, -${head.width.value} -${head.top.value}, -${head.width.value} 0Z`,
+          c ${-head.chinWidth.value} ${head.chin.value}, ${head.width.value + head.chinWidth.value} ${head.chin.value}, ${head.width.value} 0 
+          v-${head.height.value}
+          c 0 -100, -${head.width.value} -100, -${head.width.value} 0Z`,
           stroke: 'black',
           'stroke-width': '3',
           fill: head.color,

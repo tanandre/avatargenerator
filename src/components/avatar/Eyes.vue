@@ -17,11 +17,13 @@ export default {
   },
   render(h) {
     const { eyes } = this.$store.state.face;
+    const startXLeft = this.startX;
+    const startXRight = this.startX + eyes.wide.value;
 
     return h('g', [
       h('ellipse', {
         attrs: {
-          cx: this.startX,
+          cx: startXLeft,
           cy: this.startY,
           rx: eyes.outerWidth.value / 2,
           ry: eyes.outerHeight.value / 2,
@@ -30,7 +32,7 @@ export default {
         },
       }), h('ellipse', {
         attrs: {
-          cx: this.startX + eyes.wide.value,
+          cx: startXRight,
           cy: this.startY,
           rx: eyes.outerWidth.value / 2,
           ry: eyes.outerHeight.value / 2,
@@ -38,19 +40,51 @@ export default {
         },
       }), h('ellipse', {
         attrs: {
-          cx: this.startX + 5,
-          cy: this.startY - 5,
+          cx: startXLeft,
+          cy: this.startY,
+          rx: eyes.innerWidth.value / 2 + 3,
+          ry: eyes.innerWidth.value / 2 + 3,
+          fill: 'brown',
+        },
+      }), h('ellipse', {
+        attrs: {
+          cx: startXRight,
+          cy: this.startY,
+          rx: eyes.innerWidth.value / 2 + 3,
+          ry: eyes.innerWidth.value / 2 + 3,
+          fill: 'brown',
+        },
+      }), h('ellipse', {
+        attrs: {
+          cx: startXLeft,
+          cy: this.startY,
           rx: eyes.innerWidth.value / 2,
-          ry: eyes.innerHeight.value / 2,
+          ry: eyes.innerWidth.value / 2,
           fill: eyes.innerColor,
         },
       }), h('ellipse', {
         attrs: {
-          cx: this.startX + eyes.wide.value + 5,
-          cy: this.startY - 5,
+          cx: startXRight,
+          cy: this.startY,
           rx: eyes.innerWidth.value / 2,
-          ry: eyes.innerHeight.value / 2,
+          ry: eyes.innerWidth.value / 2,
           fill: eyes.innerColor,
+        },
+      }), h('ellipse', {
+        attrs: {
+          cx: startXLeft + eyes.innerWidth.value / 4,
+          cy: this.startY - eyes.innerWidth.value / 4,
+          rx: 2,
+          ry: 2,
+          fill: 'white',
+        },
+      }), h('ellipse', {
+        attrs: {
+          cx: startXRight + eyes.innerWidth.value / 4,
+          cy: this.startY - eyes.innerWidth.value / 4,
+          rx: 2,
+          ry: 2,
+          fill: 'white',
         },
       }),
     ]);
