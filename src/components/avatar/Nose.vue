@@ -1,11 +1,32 @@
+<template>
+  <g>
+    <defs>
+      <g id="nose01">
+        <path :d="`M0 0 c 0 10 5 ${nose.height.value - 10} 0 ${nose.height.value}`"/>
+        <path :d="`M${nose.width.value / 4} ${nose.height.value - 4} c 0 -2 5 -2 ${nose.width.value / 4} 0`"/>
+        <path :d="`M-${nose.width.value / 4 + 2} ${nose.height.value - 4} c 0 -2 -5 -2 -${nose.width.value / 4} 0`"/>
+      </g>
+      <g id="nose00">
+        <path :d="`M-${nose.width.value} ${nose.height.value - 5}
+        c ${nose.width.value / 2} -10 ${nose.width.value + nose.width.value / 2} -10 ${nose.width.value * 2} 0
+        c -${nose.width.value / 2} 10 -${nose.width.value + nose.width.value / 2} 10 -${nose.width.value * 2} 0`" fill="rgb(0,0,0, 0.1)" stroke="none"/>
+
+        <path :d="`M${nose.width.value / 2 - 2} ${nose.height.value - 4} c 0 -2 5 -2 ${nose.width.value / 2} 0`"/>
+        <path :d="`M-${nose.width.value / 2 - 2} ${nose.height.value - 4} c 0 -2 -5 -2 -${nose.width.value / 2} 0`"/>
+      </g>
+    </defs>
+    <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#nose0${nose.type.value}`" stroke="black" stroke-width="2"/>
+  </g>
+</template>
 <script>
 export default {
   computed: {
+    nose() {
+      return this.$store.state.face.nose;
+    },
     startX() {
       return (
-        (this.$store.state.frame.dimensions.width
-          - this.$store.state.face.nose.width.value)
-        / 2
+        (this.$store.state.frame.dimensions.width) / 2
       );
     },
     startY() {
@@ -16,34 +37,6 @@ export default {
         + this.$store.state.face.nose.offsetY.value
       );
     },
-  },
-  render(h) {
-    const { nose } = this.$store.state.face;
-    const noseType0 = h('path', {
-      attrs: {
-        d: `m ${this.startX} ${this.startY} c 0 ${nose.height.value / 2}, ${nose.width.value} ${nose.height.value / 2}, ${nose.width.value} 0`,
-        stroke: 'black',
-        fill: 'transparent',
-        'stroke-width': '3',
-      },
-    });
-    const width = nose.width.value / 2;
-    const height = nose.height.value / 2;
-    const noseType1 = h('ellipse', {
-      attrs: {
-        cx: this.startX + width,
-        cy: this.startY + height,
-        rx: width,
-        ry: height,
-        stroke: 'black',
-        'stroke-width': '3',
-        //        stroke: eyes.outerColor,
-      },
-    });
-
-    return h('g', [
-      nose.type.value === 0 ? noseType0 : noseType1,
-    ]);
   },
 };
 </script>

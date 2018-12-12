@@ -1,6 +1,24 @@
+<template>
+  <g>
+    <defs>
+      <g id="mouth00">
+        <path :d="`M0 0 c 5 -5 30 -2 ${mouth.width.value} 0`"/>
+        <path :d="`M${mouth.width.value / 2 -5} 10 c 5 -2 10 -2 10 0`"/>
+      </g>
+      <g id="mouth01">
+        <path :d="`M 0 0 c 0 ${mouth.height.value}, ${mouth.width.value} ${mouth.height.value}, ${mouth.width.value} 0 Z`" fill="#fff"/>
+        <path :d="`M${mouth.width.value / 2 -5} ${mouth.height.value + 2} c 5 2 10 2 10 0`"/>
+      </g>
+    </defs>
+    <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#mouth0${mouth.type.value}`" stroke="black" stroke-width="2"/>
+  </g>
+</template>
 <script>
 export default {
   computed: {
+    mouth() {
+      return this.$store.state.face.mouth;
+    },
     startX() {
       return (
         (this.$store.state.frame.dimensions.width
@@ -16,20 +34,6 @@ export default {
         + this.$store.state.face.mouth.offsetY.value
       );
     },
-  },
-  render(h) {
-    const { mouth } = this.$store.state.face;
-
-    return h('g', [
-      h('path', {
-        attrs: {
-          d: `M ${this.startX} ${this.startY} c 0 ${mouth.height.value}, ${mouth.width.value} ${mouth.height.value}, ${mouth.width.value} 0 Z`,
-          stroke: 'black',
-          'stroke-width': '3',
-          fill: 'white',
-        },
-      }),
-    ]);
   },
 };
 </script>

@@ -5,7 +5,7 @@ export default {
       return (
         (this.$store.state.frame.dimensions.height / 2)
         + this.$store.state.face.eyes.offsetY.value
-        - this.$store.state.face.eyes.outerHeight.value / 2 - 5
+        - this.$store.state.face.eyes.outerHeight.value / 2 - 15
       );
     },
   },
@@ -23,7 +23,7 @@ export default {
     return h('g', {
       attrs: {
         fill: 'transparent',
-        stroke: '#666',
+        stroke: '#000',
         'stroke-width': '4',
       },
     }, browStyles[brows.type.value].map(d => h('path', { attrs: { d } })));
