@@ -38,9 +38,16 @@
             stroke="black"
             stroke-width="4"
           ></path>
-      <g id="eyeBall">
+      <g id="eyeBall00">
         <circle x="0" y="0" r="50" fill="#fff"/>
-        <!-- <circle x="0" y="0" r="50" fill="url(#eyeWhite)"/> -->
+        <ellipse  stroke="black"
+            stroke-width="1" :cx="0" :cy="0" :rx="eyes.innerWidth.value / 2" :ry="eyes.innerWidth.value / 1.5"
+             :fill="`url(#iris0${eyes.iris.value})`"></ellipse>
+        <circle :cx="0" :cy="0" r="8" fill="black" />
+        <ellipse :cx="5" :cy="-4" rx="4" ry="5" fill="white"></ellipse>
+      </g>
+      <g id="eyeBall01">
+        <circle x="0" y="0" r="50" fill="#fff"/>
         <ellipse  stroke="black"
             stroke-width="3" :cx="0" :cy="0" :rx="eyes.innerWidth.value / 2" :ry="eyes.innerWidth.value / 2"
              :fill="`url(#iris0${eyes.iris.value})`"></ellipse>
@@ -56,11 +63,11 @@
     </defs>>
     <g>
       <use :x="startXLeft" :y="startY" xlink:href="#eyeOutlineTop" stroke="black" stroke-width="8" />
-      <use :x="startXLeft" :y="startY" xlink:href="#eyeBall" style="clip-path: url(#eyeMaskLeft);" />
+      <use :x="startXLeft" :y="startY" :xlink:href="`#eyeBall0${eyes.irisType.value}`" style="clip-path: url(#eyeMaskLeft);" />
     </g>
       <g>
       <use :x="-startXRight" :y="startY" xlink:href="#eyeOutlineTop" stroke="black" stroke-width="8" transform="scale(-1, 1)" />
-      <use :x="startXRight" :y="startY" xlink:href="#eyeBall" style="clip-path: url(#eyeMaskRight);" />
+      <use :x="startXRight" :y="startY" :xlink:href="`#eyeBall0${eyes.irisType.value}`" style="clip-path: url(#eyeMaskRight);" />
     </g>
   </g>
 </template>

@@ -2,9 +2,9 @@
   <g>
     <defs>
       <g id="neck">
-        <path :d="`M-20 0
+        <path :d="`M-${width / 4} 0
         c -10 150 -20 160 -30 180
-        h 100
+        h ${width / 2 + 60}
         c -30 -40 -20 -150 -10 -180`"/>
       </g>
     </defs>
@@ -21,6 +21,10 @@ export default {
     startY() {
       return this.$store.state.frame.dimensions.height / 2;
     },
+    width() {
+      return this.$store.state.face.head.width.value / 2;
+    },
+
     halfHeight() {
       return this.$store.state.frame.dimensions.height / 2;
     },
