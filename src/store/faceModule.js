@@ -76,6 +76,10 @@ export default {
       type: toValue(0, 0, 0),
       color: 'brown',
     },
+    shirt: {
+      color1: '#ff0000',
+      color2: '#fff',
+    },
     customPath1: '',
     customPath2: '',
   },
