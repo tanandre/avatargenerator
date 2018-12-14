@@ -29,8 +29,8 @@
 
 
       <CustomPath :path="$store.state.face.customPath2"/>
-      <Shirt />
       <HairBack v-if="$store.state.face.hair.show"/>
+      <Shirt />
       <Neck />
       <Ears v-if="$store.state.face.ears.show"/>
       <Head v-if="$store.state.face.head.show" />

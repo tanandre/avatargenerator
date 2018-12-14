@@ -5,7 +5,7 @@ export default {
     return h('g', {
       attrs: {
         stroke: 'black',
-        fill: 'red',
+        fill: 'rgb(255,255,255,0.5)',
         'stroke-width': '3',
       },
     }, [h('path', {
