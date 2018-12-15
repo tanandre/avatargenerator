@@ -31,13 +31,6 @@
           c ${eyes.outerWidth.value / 4} -${eyes.outerHeight.value} ${eyes.outerWidth.value - eyes.outerWidth.value / 4} -${eyes.outerHeight.value} ${eyes.outerWidth.value} 0
           `"
           ></path>
-      <path id="eyeOutlineBottom" :transform="`rotate(${eyes.rotate.value}, 0, 0)`"
-            :d="`M ${eyes.outerWidth.value / 2} 0
-          c -${eyes.outerWidth.value / 2} ${eyes.outerHeight.value}, -${eyes.outerWidth.value / 2} ${eyes.outerHeight.value}, -${eyes.outerWidth.value} 0
-          `"
-            stroke="black"
-            stroke-width="4"
-          ></path>
       <g id="eyeBall00">
         <circle x="0" y="0" r="50" fill="#fff"/>
         <ellipse  stroke="black"
