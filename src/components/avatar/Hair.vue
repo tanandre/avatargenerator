@@ -1,6 +1,40 @@
+<template>
+  <g>
+    <defs>
+      <g>
+         <path id="hair" :d="`
+         m0 0
+c10 60 20 70 40 80
+c0  0 -20 -20 0 -50
+c10 50 20 60 40 80
+c0  0 -20 -20 0 -50
+c0 50  0 60 -10 80
+c0  0 50 -20 30 -120
+c10 10 10  10 10 15
+c 0 -50 -50 -120 -100 -100
+c0 -10 10 -10 10 -10
+c -50 -10 -40 20 -60 20
+c -100 10 -50 120  -70 160
+c 10 -10 15 -10 20  -30
+c 0 0 5 40 15 50
+c 0 10 -10 -50 10 -100
+c 0 20 10 30 20 30
+c -10 -10 10 -40 10 -40
+c 0 10 10 25 30 20
+c -5 -10 -10 -20 5 -35
+`"
+          ></path>
+      </g>
+      </defs>
+    <use :x="`200`" :y="startY" :xlink:href="`#hair`" stroke="black" stroke-width="2" :fill="'brown'"/>
+      </g>
+</template>
 <script>
 export default {
   computed: {
+    hair() {
+      return this.$store.state.face.hair;
+    },
     startX() {
       return (
         (this.$store.state.frame.dimensions.width
@@ -13,7 +47,7 @@ export default {
         (this.$store.state.frame.dimensions.height
           - this.$store.state.face.head.height.value)
           / 2
-          - this.$store.state.face.head.top.value
+          - this.$store.state.face.head.top.value / 2
         + this.$store.state.face.head.offsetY.value
       );
     },
@@ -66,7 +100,7 @@ export default {
       attrs: {
         fill: hair.color,
         stroke: 'black',
-        'stroke-width': '3',
+        'stroke-width': '2',
       },
     }, hairStyles[hair.type.value].map(d => h('path', { attrs: { d } })));
   },

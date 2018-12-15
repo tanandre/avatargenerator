@@ -14,7 +14,7 @@
           c 0 -100, -${head.width.value} -100, -${head.width.value} 0Z`"/>
       </g>
   </defs>
-    <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#head`" :fill="`${head.color}`" stroke="black" stroke-width="3"/>
+    <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#head`" :fill="`${head.color}`" stroke="black" stroke-width="2"/>
     <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#head`" fill="rgba(0,0,0,0.2)"/>
     <use :x="`${startX}`" :y="`${startY}`"  :xlink:href="`#headSmaller`" :fill="`${head.color}`"/>
 </g>
