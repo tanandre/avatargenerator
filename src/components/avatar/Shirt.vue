@@ -19,8 +19,8 @@ l ${borderThickness1} -${borderThickness2}`" />
         </g>
     </defs>
     <g v-if="position === 0">
-      <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#shirt`" stroke="black" stroke-width="2" fill="#000"/>
-      <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#shirt`" stroke="black" stroke-width="2" :fill="`${color1}`" fill-opacity="0.6"/>
+      <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#shirt`" stroke="black" stroke-width="2" :fill="`${color1}`"/>
+      <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#shirt`" stroke="black" stroke-width="2" fill="rgba(0,0,0,0.2)"/>
       <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#shirt3`"  :fill="`${color1}`" />
     </g>
     <g v-if="position === 1">

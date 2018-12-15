@@ -5,7 +5,7 @@
         <path :d="`M-${width / 4} 0
         c -10 ${neckHeight - 10} -20 ${neckHeight} -30 ${neckHeight}
         c 0 30 ${width / 2 + 60} 30 ${width / 2 + 60} 0
-        c -30 0 -20 -${neckHeight - 10} -10 -${neckHeight}`"/>
+        c -30 0 -20 -${neckHeight - 10} -30 -${neckHeight}`"/>
       </g>
     </defs>
     <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#neck`" stroke="black" stroke-width="2"/>
