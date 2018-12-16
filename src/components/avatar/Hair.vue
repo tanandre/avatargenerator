@@ -1,8 +1,17 @@
 <template>
   <g>
     <defs>
-      <g>
-         <path id="hair" :d="`
+        <radialGradient id="brownColor" cy="1%" r="1">
+        <stop offset="20%" stop-color="brown"/>
+        <stop offset="30%" stop-color="rgba(255,255,255,0.5)"/>
+        <stop offset="45%" stop-color="brown"/>
+      </radialGradient>
+      <linearGradient id="brownColor2" gradientTransform="rotate(90)">
+          <stop offset="20%" stop-color="#000"/>
+          <stop offset="30%" stop-color="#C55010"/>
+      </linearGradient>
+      <g id="hair">
+         <path :d="`
          m0 0
 c10 60 20 70 40 80
 c0  0 -20 -20 0 -50
@@ -27,6 +36,7 @@ c -5 -10 -10 -20 5 -35
       </g>
       </defs>
     <use :x="`200`" :y="startY" :xlink:href="`#hair`" stroke="black" stroke-width="2" :fill="'brown'"/>
+    <use :x="`200`" :y="startY" :xlink:href="`#hair`" stroke="black" stroke-width="2" :fill="'url(#brownColor)'"/>
       </g>
 </template>
 <script>

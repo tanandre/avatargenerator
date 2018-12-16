@@ -1,3 +1,11 @@
+<template>
+  <g>
+    <defs>
+      <g>
+      </g>
+      </defs>
+      </g>
+</template>
 <script>
 export default {
   computed: {
@@ -35,7 +43,7 @@ export default {
       /* type 0 */
       [`M${hstartX} ${this.startY} 
         c -100 0 -80 200 0 200 
-        h 100 z`],
+        h 10 z`],
       [],
       [],
     ];
@@ -44,7 +52,7 @@ export default {
       attrs: {
         fill: hair.color,
         stroke: 'black',
-        'stroke-width': '3',
+        'stroke-width': '2',
       },
     }, hairStyles[hair.type.value].map(d => h('path', { attrs: { d } })));
   },
