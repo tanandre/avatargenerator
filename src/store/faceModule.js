@@ -44,8 +44,8 @@ export default {
         state => state.eyes.outerHeight.value - 10),
       innerColor: '#000',
       wide: toValue(90,
-        state => state.eyes.outerWidth.value * 2,
-        state => Math.min(100, state.head.width.value - 40 - state.eyes.outerWidth.value)),
+        state => state.eyes.outerWidth.value + 30,
+        state => Math.min(100, state.head.width.value - 50 - state.eyes.outerWidth.value)),
     },
     nose: {
       show: true,
@@ -73,8 +73,10 @@ export default {
     },
     hair: {
       show: true,
-      type: toValue(0, 0, 0),
+      type: toValue(0, 0, 1),
       color: 'brown',
+      hairLine: toValue(80, 60, 90),
+
     },
     shirt: {
       color1: '#ff0000',
