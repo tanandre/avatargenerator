@@ -60,7 +60,7 @@ export default {
       show: true,
       type: toValue(0, 0, 1),
       width: toValue(40, 20, state => Math.min(state.head.width.value - 50, 80)),
-      height: toValue(40, 10, 50),
+      height: toValue(40, 10, state => Math.min(50, state.mouth.width.value)),
       offsetY: toValue(110,
         state => state.nose.offsetY.value + state.nose.height.value / 2 + state.mouth.height.value / 2 + 5,
         state => state.head.height.value / 2 + state.head.chin.value / 1.5 - 10),
@@ -75,7 +75,7 @@ export default {
       show: true,
       type: toValue(0, 0, 1),
       color: 'brown',
-      hairLine: toValue(80, 60, 90),
+      hairLine: toValue(80, 60, 80),
 
     },
     shirt: {

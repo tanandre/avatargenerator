@@ -9,7 +9,7 @@
       </radialGradient>
       <g id="hair00">
          <path :d="`
-         m0 0
+         m0 -40
 c10 60 20 70 ${head.width.value / 4} 80
 c0  0 -20 -20 0 -50
 c10 50 20 60 ${head.width.value / 4} 80
@@ -33,7 +33,7 @@ c -5 -10 -10 -20 10 -35
       </g>
       <g id="hair01">
          <path :d="`
-        m0 0
+        m0 -20
 c 40 0 70 -${hair.hairLine.value} ${head.width.value / 2} ${head.height.value + 30}
 c20 -${head.height.value + 80} -40 -${head.height.value + 90} -${head.width.value / 2} -${head.height.value + 90}
 m 0 60
@@ -67,7 +67,6 @@ export default {
         (this.$store.state.frame.dimensions.height
           - this.$store.state.face.head.height.value)
           / 2
-          - 30
         + this.$store.state.face.head.offsetY.value
       );
     },
