@@ -35,15 +35,29 @@ c -5 -10 -10 -20 10 -35
          <path :d="`
         m0 -20
 c 40 0 70 -${hair.hairLine.value} ${head.width.value / 2} ${head.height.value + 30}
+c 20 -100 -20 -110 0 -170
+c -10 0 -30 10 -${head.width.value / 4} 40
+c0 0 10 -20 0 -50
+c 0 10 -30 40 -${head.width.value / 4} 50
+c0 0 10 -20 0 -50
+M0 -20
+c -40 0 -70 -${hair.hairLine.value} -${head.width.value / 2} ${head.height.value + 30}
+c-30 -150 50 -120 ${head.width.value / 2} -180
+`" />
+      </g>
+      <g id="hair02">
+         <path :d="`
+        M0 -20
+c 40 0 70 -${hair.hairLine.value} ${head.width.value / 2} ${head.height.value + 30}
 c20 -${head.height.value + 80} -40 -${head.height.value + 90} -${head.width.value / 2} -${head.height.value + 90}
-m 0 60
+M0 -20
 c -40 0 -70 -${hair.hairLine.value} -${head.width.value / 2} ${head.height.value + 30}
 c-20 -${head.height.value + 80} 40 -${head.height.value + 90} ${head.width.value / 2} -${head.height.value + 90}
 `" />
       </g>
       </defs>
-    <use :x="`200`" :y="startY" :xlink:href="`#hair0${hair.type.value}`" stroke="black" stroke-width="2" :fill="hair.color"/>
-    <use :x="`200`" :y="startY" :xlink:href="`#hair0${hair.type.value}`" stroke="black" stroke-width="2" fill="url(#shineColor)"/>
+        <use :x="`200`" :y="startY" :xlink:href="`#hair0${hair.type.value}`" stroke="black" stroke-width="2" :fill="hair.color"/>
+        <use :x="`200`" :y="startY" :xlink:href="`#hair0${hair.type.value}`" stroke="black" stroke-width="2" fill="url(#shineColor)"/>
       </g>
 </template>
 <script>
@@ -70,58 +84,6 @@ export default {
         + this.$store.state.face.head.offsetY.value
       );
     },
-    halfY() {
-      return (
-        (this.$store.state.frame.dimensions.height
-          - this.$store.state.face.head.height.value)
-          / 2
-        + this.$store.state.face.head.offsetY.value + 40
-      );
-    },
-  },
-  render(h) {
-    const { hair, head } = this.$store.state.face;
-
-    const depth = 60;
-    const height = 60;
-
-    const hstartX = this.startX + head.width.value / 4;
-    const partHeadWidth = head.width.value / 4 * 3 / 2;
-    const partHeadHeight = head.height.value + head.top.value + head.chin.value;
-
-    const hairStyles = [
-      [`M ${hstartX} ${this.startY} 
-          q 0 70 ${partHeadWidth} 80 
-          t ${partHeadWidth} ${partHeadHeight / 3}
-          c 10 -10 50 -100 0 -${partHeadHeight / 2}
-          s -50 -60 -${partHeadWidth + partHeadWidth} -28 Z
-          `],
-      /* type 0 */
-      [`M ${this.startX} ${this.halfY} 
-          c 0 -100, ${head.width.value / 2} -${depth + 20}, ${head.width.value / 2} -${depth} 
-          l 0 -${height}
-          c -${head.width.value / 4} -20, -${head.width.value / 2} -20, -${head.width.value / 2 + 10} 20 
-          Z`,
-      `M ${this.startX + head.width.value} ${this.halfY} 
-          c 0 -100, -${head.width.value / 2} -${depth + 20}, -${head.width.value / 2} -${depth} 
-          l 0 -${height}
-          c ${head.width.value / 4} -20, ${head.width.value / 2} -20, ${head.width.value / 2 + 10} 20 
-          Z`],
-      /* type 1 */
-      [`M ${this.startX} ${this.halfY} 
-          c 0 -100, ${head.width.value} -20, ${head.width.value} 0 
-          l 10 -80
-          c -${head.width.value / 4} -100, -${head.width.value} -50, -${head.width.value + 20} 0 
-          Z`],
-    ];
-
-    return h('g', {
-      attrs: {
-        fill: hair.color,
-        stroke: 'black',
-        'stroke-width': '2',
-      },
-    }, hairStyles[hair.type.value].map(d => h('path', { attrs: { d } })));
   },
 };
 </script>
