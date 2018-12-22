@@ -15,3 +15,7 @@ new Vue({
 router.afterEach((to) => {
   store.dispatch('generate', Number(to.params.id));
 });
+
+if (Number(router.currentRoute.params.id) !== 0) {
+  store.dispatch('generate', router.currentRoute.params.id);
+}
