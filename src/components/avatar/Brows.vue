@@ -1,6 +1,23 @@
+<template>
+  <g>
+    <defs>
+      <g id="brows00" stroke-width="4">
+        <path :transform="`rotate(${brows.rotate.value}, ${-eyes.outerWidth.value}, 0)`" :d="`M-${eyes.wide.value / 2 - eyes.outerWidth.value / 2} 0 c -5 -10 -${eyes.outerWidth.value - 5} -10 -${eyes.outerWidth.value} 0`"/>
+        <path :transform="`rotate(${-brows.rotate.value}, ${eyes.outerWidth.value}, 0)`" :d="`M${eyes.wide.value / 2 - eyes.outerWidth.value / 2} 0 c 5 -10 ${eyes.outerWidth.value - 5} -10 ${eyes.outerWidth.value} 0`"/>
+      </g>
+    </defs>
+    <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#brows0${brows.type.value}`" stroke="rgba(0,0,0,0.9)" fill="transparent"/>
+  </g>
+</template>
 <script>
 export default {
   computed: {
+    eyes() {
+      return this.$store.state.face.eyes;
+    },
+    brows() {
+      return this.$store.state.face.brows;
+    },
     startY() {
       return (
         (this.$store.state.frame.dimensions.height / 2)
@@ -8,25 +25,9 @@ export default {
         - this.$store.state.face.eyes.outerHeight.value / 2 - 15
       );
     },
-  },
-  render(h) {
-    const { brows, eyes } = this.$store.state.face;
-    const startXLeft = (this.$store.state.frame.dimensions.width - this.$store.state.face.eyes.wide.value) / 2 - this.$store.state.face.eyes.outerWidth.value / 2;
-    const startXRight = (this.$store.state.frame.dimensions.width - this.$store.state.face.eyes.wide.value) / 2 + this.$store.state.face.eyes.outerWidth.value / 2;
-
-    const browStyles = [
-      [`M${startXLeft} ${this.startY} c 5 -10 ${eyes.outerWidth.value - 5} -10 ${eyes.outerWidth.value} 0`,
-        `M${startXRight + this.$store.state.face.eyes.wide.value} ${this.startY} c -5 -10 -${eyes.outerWidth.value - 5} -10 -${eyes.outerWidth.value} 0`,
-      ],
-    ];
-
-    return h('g', {
-      attrs: {
-        fill: 'transparent',
-        stroke: '#000',
-        'stroke-width': '4',
-      },
-    }, browStyles[brows.type.value].map(d => h('path', { attrs: { d } })));
+    startX() {
+      return this.$store.state.frame.dimensions.width / 2;
+    },
   },
 };
 </script>

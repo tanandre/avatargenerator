@@ -28,6 +28,7 @@ export default {
     brows: {
       show: true,
       type: toValue(0, 0, 0),
+      rotate: toValue(10, -20, 20),
     },
     eyes: {
       show: true,
@@ -104,7 +105,7 @@ export default {
         }
       });
 
-      const entries = [].concat(...[clone.eyes, clone.nose, clone.mouth, clone.ears, clone.hair].map(e => Object.entries(e)));
+      const entries = [].concat(...[clone.eyes, clone.nose, clone.mouth, clone.ears, clone.hair, clone.brows].map(e => Object.entries(e)));
 
       entries.forEach((entry) => {
         // console.log(entry[0], entry[1].value);
