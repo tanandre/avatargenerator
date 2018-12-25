@@ -8,6 +8,7 @@
       <v-btn class="primary" @click="generateAvatar">Generate [g]</v-btn>
        <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
+      <v-btn href="https://andretan.nl" icon fab><v-icon>home</v-icon></v-btn>
       <v-btn href="https://github.com/tanandre/avatargenerator" icon fab><v-icon>mdi-github-circle</v-icon></v-btn>
     </v-toolbar-items>
     </v-toolbar>
