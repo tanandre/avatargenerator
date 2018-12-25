@@ -6,6 +6,10 @@
     <v-toolbar app fixed >
       <v-toolbar-title></v-toolbar-title>
       <v-btn class="primary" @click="generateAvatar">Generate [g]</v-btn>
+       <v-spacer></v-spacer>
+    <v-toolbar-items class="hidden-sm-and-down">
+      <v-btn href="https://github.com/tanandre/avatargenerator" icon fab><v-icon>mdi-github-circle</v-icon></v-btn>
+    </v-toolbar-items>
     </v-toolbar>
     <v-content>
       <v-container fluid>
