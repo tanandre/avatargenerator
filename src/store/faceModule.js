@@ -73,7 +73,7 @@ export default {
     },
     hair: {
       show: true,
-      type: toValue(3, 0, 3),
+      type: toValue(3, 0, 4),
       color: 'brown',
       hairLine: toValue(80, 60, 80),
 

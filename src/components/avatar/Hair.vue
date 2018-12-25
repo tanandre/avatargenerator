@@ -31,20 +31,8 @@ c -5 -10 -10 -20 10 -35
 `"
           ></path>
       </g>
-      <g id="hair01">
-         <path :d="`
-        m0 -20
-c 40 0 70 -${hair.hairLine.value} ${head.width.value / 2} ${head.height.value + 30}
-c 20 -100 -20 -110 0 -170
-c -10 0 -30 10 -${head.width.value / 4} 40
-c0 0 10 -20 0 -50
-c 0 10 -30 40 -${head.width.value / 4} 50
-c0 0 10 -20 0 -50
-M0 -20
-c -40 0 -70 -${hair.hairLine.value} -${head.width.value / 2} ${head.height.value + 30}
-c-30 -150 50 -120 ${head.width.value / 2} -180
-`" />
-      </g>
+      <Hair01 id="hair01" />
+      <Hair04 id="hair04" />
       <g id="hair02">
          <path :d="`
         M0 -20
@@ -59,12 +47,16 @@ c-20 -${head.height.value + 80} 40 -${head.height.value + 90} ${head.width.value
 
       </g>
       </defs>
-        <use :x="`200`" :y="startY" :xlink:href="`#hair0${hair.type.value}`" stroke="black" stroke-width="2" :fill="hair.color"/>
-        <use :x="`200`" :y="startY" :xlink:href="`#hair0${hair.type.value}`" stroke="black" stroke-width="2" fill="url(#shineColor)"/>
+        <use :x="startX" :y="startY" :xlink:href="`#hair0${hair.type.value}`" stroke="black" stroke-width="2" :fill="hair.color"/>
+        <use :x="startX" :y="startY" :xlink:href="`#hair0${hair.type.value}`" stroke="black" stroke-width="2" fill="url(#shineColor)"/>
       </g>
 </template>
 <script>
+import Hair01 from './hair/Hair01.vue';
+import Hair04 from './hair/Hair04.vue';
+
 export default {
+  components: { Hair01, Hair04 },
   computed: {
     head() {
       return this.$store.state.face.head;
@@ -74,8 +66,7 @@ export default {
     },
     startX() {
       return (
-        (this.$store.state.frame.dimensions.width
-          - this.$store.state.face.head.width.value)
+        (this.$store.state.frame.dimensions.width)
         / 2
       );
     },
