@@ -29,6 +29,7 @@ export default {
       show: true,
       type: toValue(0, 0, 0),
       rotate: toValue(10, -20, 20),
+      curve: toValue(10, 0, 10),
     },
     eyes: {
       show: true,
