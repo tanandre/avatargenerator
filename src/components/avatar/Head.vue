@@ -8,6 +8,7 @@
           c 0 -100, -${head.width.value} -100, -${head.width.value} 0Z`"/>
        </g>
       <g id="headSmaller" transform="scale(0.9, 0.98)">
+        <!-- <use href="#head" /> -->
         <path :d="`m-${head.width.value / 2} -${head.height.value / 2} v${head.height.value}
           c ${-head.chinWidth.value} ${head.chin.value}, ${head.width.value + head.chinWidth.value} ${head.chin.value}, ${head.width.value} 0
           v-${head.height.value}

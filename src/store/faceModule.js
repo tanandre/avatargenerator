@@ -69,9 +69,9 @@ export default {
     },
     ears: {
       show: true,
-      width: toValue(30, 20, 40),
+      width: toValue(30, 25, 40),
       height: toValue(40, 35, 60),
-      offsetY: toValue(60, 40, 80),
+      offsetY: toValue(60, 50, 80),
     },
     hair: {
       show: true,
