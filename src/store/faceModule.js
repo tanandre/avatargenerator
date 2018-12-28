@@ -16,7 +16,6 @@ export default {
     head: {
       show: true,
       type: toValue(1, 1, 1),
-      height1: toValue(230, 220, 240),
       height: toValue(230, 220, 240),
       width: toValue(180, 170, 180),
       topCurve: toValue(50, 40, 80),
@@ -69,7 +68,7 @@ export default {
       height: toValue(40, 10, state => Math.min(40, state.mouth.width.value)),
       offsetY: toValue(120,
         state => Math.max(100, state.nose.offsetY.value + state.nose.height.value),
-        state => Math.max(state.mouth.offsetY.min(state) + 5, state.head.height1.value / 3 * 2 - state.mouth.height.value - 15)),
+        state => Math.max(state.mouth.offsetY.min(state) + 5, state.head.height.value / 3 * 2 - state.mouth.height.value - 15)),
     },
     ears: {
       show: true,
@@ -79,7 +78,7 @@ export default {
     },
     hair: {
       show: true,
-      type: toValue(3, 0, 4),
+      type: toValue(3, 0, 5),
       color: 'brown',
       hairLine: toValue(70, 60, 70),
 

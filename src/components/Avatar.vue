@@ -75,8 +75,8 @@ export default {
   computed: {
     faceGrid() {
       return `
-      m200 ${this.$store.state.frame.dimensions.height / 2 + this.head.height1.value / 3 * 2}
-    v-${this.head.height1.value}
+      m200 ${this.$store.state.frame.dimensions.height / 2 + this.head.height.value / 3 * 2}
+    v-${this.head.height.value}
     M${this.frame.dimensions.width / 2 - this.head.width.value / 2} ${this.frame.dimensions.height / 2}
     h${this.head.width.value}
     M${this.frame.dimensions.width / 2 - this.head.width.value / 2} ${this.frame.dimensions.height / 2 + this.face.eyes.offsetY.value}
