@@ -2,7 +2,7 @@
   <g>
     <path fill-rule="evenodd"
       :d="`
-        M-30 -30
+        M-30 -40
 c 0 80 150 50 ${head.width.value / 2 + 10} 170
 c 100 -220 -40 -220 -${head.width.value / 4 + 10} -220
 c-50 0 -150 0 -${head.width.value / 2 + 10} 140
@@ -25,9 +25,7 @@ export default {
     },
     startY() {
       return (
-        (this.$store.state.frame.dimensions.height
-          - this.$store.state.face.head.height.value)
-          / 2
+        this.$store.state.frame.dimensions.height / 2
         + this.$store.state.face.head.offsetY.value
       );
     },

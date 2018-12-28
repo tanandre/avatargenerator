@@ -8,7 +8,7 @@
       </radialGradient>
       <g id="hair00">
          <path :d="`
-         m0 -40
+         m0 -50
 c10 60 20 70 ${head.width.value / 4} 80
 c0  0 -20 -20 0 -50
 c10 50 20 60 ${head.width.value / 4} 80
@@ -34,12 +34,12 @@ c -5 -10 -10 -20 10 -35
       <Hair04 id="hair04" />
       <g id="hair02">
          <path :d="`
-        M0 -10
-c 40 0 70 -${hair.hairLine.value} ${head.width.value / 2} ${head.height.value + 30}
-c20 -${head.height.value + 80} -40 -${head.height.value + 90} -${head.width.value / 2} -${head.height.value + 90}
-M0 -10
-c -40 0 -70 -${hair.hairLine.value} -${head.width.value / 2} ${head.height.value + 30}
-c-20 -${head.height.value + 80} 40 -${head.height.value + 90} ${head.width.value / 2} -${head.height.value + 90}
+        M0 -40
+c 40 0 70 -${hair.hairLine.value} ${head.width.value / 2 - 5} ${head.height1.value / 3}
+c20 -${head.height1.value / 3 + 50} -40 -${head.height1.value / 3 + 60} -${head.width.value / 2 - 5} -${head.height1.value / 3 + 60}
+M0 -40
+c -40 0 -70 -${hair.hairLine.value} -${head.width.value / 2 - 5} ${head.height1.value / 3}
+c-20 -${head.height1.value / 3 + 50} 40 -${head.height1.value / 3 + 60} ${head.width.value / 2 - 5} -${head.height1.value / 3 + 60}
 `" />
       <g id="hair03">
         </g>
@@ -71,10 +71,7 @@ export default {
     },
     startY() {
       return (
-        (this.$store.state.frame.dimensions.height
-          - this.$store.state.face.head.height.value)
-          / 2
-        + this.$store.state.face.head.offsetY.value
+        this.$store.state.frame.dimensions.height / 2
       );
     },
   },

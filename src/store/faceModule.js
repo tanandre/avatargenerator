@@ -17,7 +17,7 @@ export default {
       show: true,
       type: toValue(1, 1, 1),
       height1: toValue(230, 220, 240),
-      height: toValue(30, 20, 40),
+      height: toValue(230, 220, 240),
       width: toValue(180, 170, 180),
       topCurve: toValue(50, 40, 80),
       chinWidth: toValue(160, 140,
@@ -81,7 +81,7 @@ export default {
       show: true,
       type: toValue(3, 0, 4),
       color: 'brown',
-      hairLine: toValue(80, 60, 80),
+      hairLine: toValue(70, 60, 70),
 
     },
     shirt: {

@@ -18,19 +18,13 @@ export default {
     },
     startY() {
       return (
-        (this.$store.state.frame.dimensions.height
-          - this.$store.state.face.head.height.value)
-          / 2
-          - this.$store.state.face.head.top.value
+        this.$store.state.frame.dimensions.height / 2
         + this.$store.state.face.head.offsetY.value
       );
     },
     halfY() {
       return (
-        (this.$store.state.frame.dimensions.height
-          - this.$store.state.face.head.height.value)
-          / 2
-        + this.$store.state.face.head.offsetY.value + 40
+        this.$store.state.frame.dimensions.height / 2
       );
     },
   },
