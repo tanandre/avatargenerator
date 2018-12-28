@@ -10,9 +10,6 @@
         c -${nose.width.value / 3} 0 -${nose.width.value / 3 * 2} -5 ${-nose.width.value} 0
         s ${nose.width.value / 3 * 2} 15 ${nose.width.value} 15
         `" fill="rgb(0,0,0, 0.2)" stroke="none"/>
-        <!-- <path :d="`M-0 ${nose.height.value - 5}
-        c ${nose.width.value / 2} -10 ${nose.width.value + nose.width.value / 2} -10 ${nose.width.value * 2} 0
-        c -${nose.width.value / 2} 10 -${nose.width.value + nose.width.value / 2} 10 -${nose.width.value * 2} 0`" fill="rgb(0,0,0, 0.1)" stroke="none"/> -->
         <path :d="`M${nose.width.value / 2 - 2} ${nose.height.value - 4} c 0 -2 5 -2 ${nose.width.value / 2} 0`"/>
         <path :d="`M-${nose.width.value / 2 - 2} ${nose.height.value - 4} c 0 -2 -5 -2 -${nose.width.value / 2} 0`"/>
       </g>
@@ -38,8 +35,7 @@ export default {
     },
     startY() {
       return (
-        (this.$store.state.frame.dimensions.height
-          - this.$store.state.face.nose.height.value)
+        this.$store.state.frame.dimensions.height
           / 2
         + this.$store.state.face.nose.offsetY.value
       );

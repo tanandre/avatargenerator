@@ -1,11 +1,11 @@
 <template>
   <g>
     <defs>
-       <Head00 id="head00" />
+       <!-- <Head00 id="head00" /> -->
        <Head01 id="head01" />
-      <g id="headSmaller00" transform="scale(0.9, 0.97)">
+      <!-- <g id="headSmaller00" transform="scale(0.9, 0.97)">
         <Head00 />
-      </g>
+      </g> -->
       <g id="headSmaller01" transform="scale(0.9, 0.97)">
         <Head01 />
       </g>
@@ -16,12 +16,12 @@
 </g>
 </template>
 <script>
-import Head00 from './head/Head00.vue';
+// import Head00 from './head/Head00.vue';
 import Head01 from './head/Head01.vue';
 
 export default {
   components: {
-    Head00,
+    // Head00,
     Head01,
   },
   computed: {

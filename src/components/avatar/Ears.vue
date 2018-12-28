@@ -2,7 +2,7 @@
   <g>
     <defs>
       <g id="ear">
-        <path :d="`M -${head.width.value / 2 - wide - 10} 0
+        <path :d="`M -${head.width.value / 2 - wide - 10} ${ears.height.value}
           h-${wide}
           c -${ears.width.value / 2} 0,
             -${ears.width.value} -${ears.height.value}
@@ -32,7 +32,7 @@ export default {
     },
     startY() {
       return this.$store.state.frame.dimensions.height
-          / 2 + this.$store.state.face.ears.height.value
+          / 2
         + this.$store.state.face.ears.offsetY.value;
     },
   },
