@@ -41,6 +41,7 @@
       <Mouth v-if="face.mouth.show"/>
       <Hair v-if="face.hair.show"/>
       <CustomPath :path="$store.state.face.customPath1"/>
+      <CustomPath :path="this.faceGrid"/>
     </svg>
 </template>
 
@@ -72,8 +73,21 @@ export default {
     CustomPath,
   },
   computed: {
+    faceGrid() {
+      return `
+      m200 ${this.$store.state.frame.dimensions.height / 2 + this.head.height1.value / 3 * 2}
+    v-${this.head.height1.value}
+    M${this.frame.dimensions.width / 2 - this.head.width.value / 2} ${this.frame.dimensions.height / 2}
+    h${this.head.width.value}`;
+    },
+    head() {
+      return this.$store.state.face.head;
+    },
     face() {
       return this.$store.state.face;
+    },
+    frame() {
+      return this.$store.state.frame;
     },
     startX() {
       return (this.$store.state.frame.dimensions.width - this.$store.state.face.head.width) / 2;

@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <label class="label">{{label}}</label>
+    <label class="label" :title="`range: ${min} = ${max}`">{{label}}</label>
     <div class="slider">
       <input type="range" v-model="formValue" :max="max" :min="min"/>
     </div>

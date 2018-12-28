@@ -4,9 +4,9 @@ export default {
   render(h) {
     return h('g', {
       attrs: {
-        stroke: 'black',
-        fill: 'rgb(255,255,255,0.5)',
-        'stroke-width': '3',
+        stroke: 'rgba(0,0,0,0.3)',
+        fill: 'rgba(255,255,255,0.5)',
+        'stroke-width': '4',
       },
     }, [h('path', {
       attrs: {
