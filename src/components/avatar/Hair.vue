@@ -34,10 +34,10 @@ c -5 -10 -10 -20 10 -35
       <Hair04 id="hair04" />
       <g id="hair02">
          <path :d="`
-        M0 -20
+        M0 -10
 c 40 0 70 -${hair.hairLine.value} ${head.width.value / 2} ${head.height.value + 30}
 c20 -${head.height.value + 80} -40 -${head.height.value + 90} -${head.width.value / 2} -${head.height.value + 90}
-M0 -20
+M0 -10
 c -40 0 -70 -${hair.hairLine.value} -${head.width.value / 2} ${head.height.value + 30}
 c-20 -${head.height.value + 80} 40 -${head.height.value + 90} ${head.width.value / 2} -${head.height.value + 90}
 `" />
