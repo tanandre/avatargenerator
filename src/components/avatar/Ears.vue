@@ -31,12 +31,9 @@ export default {
       return this.$store.state.frame.dimensions.width / 2;
     },
     startY() {
-      return (
-        (this.$store.state.frame.dimensions.height
-          - this.$store.state.face.head.height.value + this.$store.state.face.ears.height.value)
-          / 2
-        + this.$store.state.face.head.offsetY.value + this.$store.state.face.ears.offsetY.value
-      );
+      return this.$store.state.frame.dimensions.height
+          / 2 + this.$store.state.face.ears.height.value
+        + this.$store.state.face.ears.offsetY.value;
     },
   },
 };
