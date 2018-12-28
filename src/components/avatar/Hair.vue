@@ -4,7 +4,6 @@
         <radialGradient id="shineColor" cy="1%" r="1">
         <stop offset="25%" stop-color="rgba(255,255,255,0)"/>
         <stop offset="30%" stop-color="rgba(255,255,255,0.2)"/>
-        <!-- <stop offset="35%" stop-color="rgba(255,255,255,0.2)"/> -->
         <stop offset="40%" stop-color="rgba(255,255,255,0)"/>
       </radialGradient>
       <g id="hair00">

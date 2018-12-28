@@ -15,12 +15,18 @@ export default {
   state: {
     head: {
       show: true,
-      height: toValue(30, 20, 50),
+      type: toValue(1, 1, 1),
+      height1: toValue(230, 220, 240),
+      height: toValue(30, 20, 40),
       width: toValue(180, 170, 180),
+      topCurve: toValue(50, 40, 80),
       chin: toValue(180,
-        170,
+        180,
         190),
-      chinWidth: toValue(-10, -20, 30),
+      chinWidth: toValue(160, 140,
+        state => state.head.width.value - 20),
+      chinHeight: toValue(70, 50, 80),
+      chinCurve: toValue(30, 20, 50),
       top: toValue(90, 70, 100),
       offsetY: toValue(-10, -10, 0),
       color: '#F0C7B1',
@@ -61,17 +67,17 @@ export default {
     mouth: {
       show: true,
       type: toValue(0, 0, 1),
-      width: toValue(40, 20, state => Math.min(state.head.width.value - 50, 80)),
+      width: toValue(40, 20, 70),
       height: toValue(40, 10, state => Math.min(40, state.mouth.width.value)),
       offsetY: toValue(120,
-        state => state.nose.offsetY.value + state.nose.height.value / 2 + state.mouth.height.value / 2 + 10,
-        state => state.head.height.value / 2 + state.head.chin.value / 1.5 - 10),
+        state => Math.max(100, state.nose.offsetY.value + state.nose.height.value / 2 + state.mouth.height.value / 2 + 15),
+        state => Math.max(state.mouth.offsetY.min(state) + 5, state.head.height.value / 2 + state.head.chin.value / 1.5 - 10)),
     },
     ears: {
       show: true,
       width: toValue(30, 25, 40),
       height: toValue(40, 35, 60),
-      offsetY: toValue(60, 50, 80),
+      offsetY: toValue(10, 0, 40),
     },
     hair: {
       show: true,
@@ -99,14 +105,7 @@ export default {
     generate({ commit, state }, id) {
       const randomizer = new Randomizer(id);
       const clone = Object.assign({}, state);
-      Object.entries(clone.head).forEach((entry) => {
-        if (entry[1].value) {
-          const newValue = randomizer.next(entry[1].min(state), entry[1].max(state));
-          entry[1].value = newValue;
-        }
-      });
-
-      const entries = [].concat(...[clone.eyes, clone.nose, clone.mouth, clone.ears, clone.hair, clone.brows].map(e => Object.entries(e)));
+      const entries = [].concat(...[clone.head, clone.eyes, clone.nose, clone.mouth, clone.ears, clone.hair, clone.brows].map(e => Object.entries(e)));
 
       entries.forEach((entry) => {
         // console.log(entry[0], entry[1].value);
