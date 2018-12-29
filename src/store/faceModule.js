@@ -13,6 +13,7 @@ function toValue(value, _min, _max) {
 
 export default {
   state: {
+    id: 0,
     head: {
       show: true,
       type: toValue(1, 1, 1),
@@ -21,7 +22,7 @@ export default {
       topCurve: toValue(50, 40, 80),
       chinWidth: toValue(160, 140,
         state => state.head.width.value - 20),
-      chinHeight: toValue(70, 50, 80),
+      chinHeight: toValue(70, 50, 70),
       chinCurve: toValue(30, 20, 50),
       top: toValue(90, 70, 100),
       offsetY: toValue(-10, -10, 0),
@@ -58,23 +59,22 @@ export default {
       height: toValue(30, 20, 40),
       offsetY: toValue(60, 50,
         state => 100 - state.nose.height.value),
-      // state => state.eyes.offsetY.value + state.eyes.outerHeight.value + state.nose.height.value / 2,
-      // state => state.eyes.offsetY.value + state.eyes.outerHeight.value + state.head.height.value / 2 - 30),
     },
     mouth: {
       show: true,
       type: toValue(0, 0, 1),
       width: toValue(40, 20, 60),
-      height: toValue(40, 10, state => Math.min(40, state.mouth.width.value)),
+      height: toValue(40, 10, state => Math.min(25, state.mouth.width.value)),
       offsetY: toValue(120,
-        state => Math.max(100, state.nose.offsetY.value + state.nose.height.value),
+        state => Math.max(100, state.nose.offsetY.value + state.nose.height.value + 10),
         state => Math.max(state.mouth.offsetY.min(state) + 5, state.head.height.value / 3 * 2 - state.mouth.height.value - 15)),
     },
     ears: {
       show: true,
       width: toValue(30, 25, 40),
       height: toValue(40, 35, 60),
-      offsetY: toValue(10, 0, 40),
+      offsetY: toValue(10,
+        state => state.eyes.offsetY.value, 70),
     },
     hair: {
       show: true,
@@ -94,6 +94,9 @@ export default {
     },
   },
   mutations: {
+    id(state, id) {
+      state.id = id;
+    },
     hairColor(state, value) {
       state.hair.color = value;
     },
@@ -103,6 +106,7 @@ export default {
   },
   actions: {
     generate({ commit, state }, id) {
+      commit('id', id);
       const randomizer = new Randomizer(id);
       const clone = Object.assign({}, state);
       const entries = [].concat(...[clone.head, clone.eyes, clone.nose, clone.mouth, clone.ears, clone.hair, clone.brows].map(e => Object.entries(e)));

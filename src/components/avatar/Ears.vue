@@ -2,7 +2,7 @@
   <g>
     <defs>
       <g id="ear">
-        <path :d="`M -${head.width.value / 2 - wide - 10} ${ears.height.value}
+        <path :d="`M -${head.width.value / 2 - wide - 10} ${ears.height.value / 2}
           h-${wide}
           c -${ears.width.value / 2} 0,
             -${ears.width.value} -${ears.height.value}
