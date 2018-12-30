@@ -37,7 +37,7 @@ export default {
     eyes: {
       show: true,
       rotate: toValue(10, -20, 30),
-      offsetY: toValue(30, 30, 40),
+      offsetY: toValue(30, 30, 50),
       iris: toValue(0, 0, 2),
       irisType: toValue(0, 0, 1),
       outerWidth: toValue(45, 40, 50),
