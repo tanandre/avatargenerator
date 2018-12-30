@@ -3,6 +3,7 @@
     <defs>
       <Mouth00 id="mouth00" />
       <Mouth01 id="mouth01" />
+      <Mouth02 id="mouth02" />
     </defs>
     <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#mouth0${mouth.type.value}`" stroke="rgba(0,0,0,0.8)"/>
   </g>
@@ -10,11 +11,13 @@
 <script>
 import Mouth00 from './mouth/Mouth00.vue';
 import Mouth01 from './mouth/Mouth01.vue';
+import Mouth02 from './mouth/Mouth02.vue';
 
 export default {
   components: {
     Mouth00,
     Mouth01,
+    Mouth02,
   },
   computed: {
     mouth() {
