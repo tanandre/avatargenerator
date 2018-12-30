@@ -3,16 +3,16 @@
     <defs>
       <g id="mouth00" stroke-width="3">
         <path :d="`M${-mouth.width.value / 2} 5 c 5 -5 30 -2 ${mouth.width.value} 0`"/>
-        <path :d="`M-5 13 c 5 -2 10 -2 10 0`"/>
+        <path stroke="rgba(0,0,0,0.4)" stroke-width="4" :d="`M-${mouth.width.value / 6} 15 c 5 -2 10 -2 ${mouth.width.value / 3} 0`"/>
       </g>
       <g id="mouth01" stroke-width="2">
-        <path :d="`M ${-mouth.width.value / 2} 0
-        c 0 ${mouth.height.value}, ${mouth.width.value / 2} ${mouth.height.value} ${mouth.width.value / 2} ${mouth.height.value}
+         <path :d="`M ${mouth.width.value / 2} ${(mouth.upperLip.value < 0 ? -mouth.upperLip.value : 0)}
+         c -10 ${mouth.upperLip.value} ${-mouth.width.value + 10} ${mouth.upperLip.value} ${-mouth.width.value} 0
+        c 10 ${mouth.height.value + (mouth.upperLip.value < 0 ? mouth.upperLip.value : 0)},
+        ${mouth.width.value - 10} ${mouth.height.value  + (mouth.upperLip.value < 0 ? mouth.upperLip.value : 0)} ${mouth.width.value} 0
         M ${-mouth.width.value / 2} 0
-        h${mouth.width.value}
-        c 0 ${mouth.height.value}, -${mouth.width.value / 2} ${mouth.height.value}, -${mouth.width.value / 2} ${mouth.height.value}
           `" fill="#fff"/>
-        <path :d="`M-5 ${mouth.height.value + 4} c 5 2 10 2 10 0`"/>
+        <path stroke="rgba(0,0,0,0.4)" stroke-width="2" :d="`M-${mouth.width.value / 4} ${mouth.height.value} c 5 3 ${mouth.width.value / 2 - 5} 3 ${mouth.width.value / 2} 0`"/>
       </g>
     </defs>
     <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#mouth0${mouth.type.value}`" stroke="rgba(0,0,0,0.8)"/>

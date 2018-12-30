@@ -65,6 +65,7 @@ export default {
       type: toValue(0, 0, 1),
       width: toValue(40, 20, 60),
       height: toValue(40, 10, state => Math.min(25, state.mouth.width.value)),
+      upperLip: toValue(0, -10, 10),
       offsetY: toValue(120,
         state => Math.max(100, state.nose.offsetY.value + state.nose.height.value + 10),
         state => Math.max(state.mouth.offsetY.min(state) + 5, state.head.height.value / 3 * 2 - state.mouth.height.value - 15)),
