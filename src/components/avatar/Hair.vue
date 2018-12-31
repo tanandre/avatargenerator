@@ -31,6 +31,7 @@ import Hair06 from './hair/Hair06.vue';
 export default {
   components: {
     Hair00,
+    Hair01,
     Hair02,
     Hair04,
     Hair05,

@@ -12,15 +12,15 @@
                     fx="50%"
                     fy="25%"
                     fr="20%"
-                   id="flameGradient">
+                   id="teethWhite01">
       <stop offset="2%" stop-color="#888"/>
       <stop offset="6%" stop-color="#fff"/>
     </radialGradient>
       <g id="teeth00">
-        <rect :x="-mouth.width.value / 2" :y="-mouth.height.value/2" :width="mouth.width.value" :height="mouth.height.value" fill="black" />
+        <rect :x="-mouth.width.value / 2" :y="-mouth.height.value/2" :width="mouth.width.value" :height="mouth.height.value" fill="#000" />
         <path
           :d="`M -30 -5
-            c 20 10 40 10 60 0
+            c 20 8 40 8 60 0
             v${-mouth.height.value / 2} h-60
               `"
               stroke="#000"
@@ -28,8 +28,6 @@
               fill="url(#teethWhite)"
         />
       </g>
-
-
       <Mouth00 id="mouth00" />
       <Mouth01 id="mouth01" />
       <Mouth02 id="mouth02" />
