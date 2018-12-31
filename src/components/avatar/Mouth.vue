@@ -1,11 +1,50 @@
 <template>
   <g>
     <defs>
+      <linearGradient id="teethWhite">
+          <stop offset="0%" stop-color="#888"/>
+          <stop offset="30%" stop-color="#fff"/>
+          <stop offset="70%" stop-color="#fff"/>
+          <stop offset="100%" stop-color="#888"/>
+      </linearGradient>
+      <radialGradient
+                    r="520%"
+                    fx="50%"
+                    fy="25%"
+                    fr="20%"
+                   id="flameGradient">
+      <stop offset="2%" stop-color="#888"/>
+      <stop offset="6%" stop-color="#fff"/>
+    </radialGradient>
+      <g id="teeth00">
+        <rect :x="-mouth.width.value / 2" :y="-mouth.height.value/2" :width="mouth.width.value" :height="mouth.height.value" fill="black" />
+        <path
+          :d="`M -30 -5
+            c 20 10 40 10 60 0
+            v${-mouth.height.value / 2} h-60
+              `"
+              stroke="#000"
+              stroke-width="2"
+              fill="url(#teethWhite)"
+        />
+      </g>
+
+
       <Mouth00 id="mouth00" />
       <Mouth01 id="mouth01" />
       <Mouth02 id="mouth02" />
+
+      <clipPath id="testMask">
+        <rect :x="-mouth.width.value / 2" :y="-mouth.height.value/2" :width="mouth.width.value" :height="mouth.height.value" />
+      </clipPath>
+      <clipPath :id="`mouthMask`">
+        <use :href="`#mouth0${mouth.type.value}Outline`" />
+      </clipPath>
+
     </defs>
-    <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#mouth0${mouth.type.value}`" stroke="rgba(0,0,0,0.8)"/>
+    <!-- <use :x="`${startX}`" :y="`${startY}`" xlink:href="#teeth00" :style="`clip-path: url(#testMask);`"/> -->
+    <use :x="`${startX}`" :y="`${startY}`" xlink:href="#teeth00" :style="`clip-path: url(#mouthMask);`"/>
+    <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#mouth0${mouth.type.value}`" stroke="rgb(0,0,0)" fill="transparent"/>
   </g>
 </template>
 <script>
