@@ -1,11 +1,11 @@
 <template>
   <g>
-    <path
+    <!-- <path
       v-for="(n, idx) in angles"
       :transform="`rotate(${n} 0 -40)`"
       stroke-width="1"
       :d="'m0 -40' + hairLockRandom(n, idx)"
-    ></path>
+    ></path> -->
   </g>
 </template>
 <script>

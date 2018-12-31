@@ -12,12 +12,13 @@
       <Hair04 id="hair04" />
       <Hair05 id="hair05" />
       <Hair06 id="hair06" type="front"/>
+      <Hair07 id="hair07" type="front"/>
 
       <g id="hair03">
       </g>
       </defs>
-        <use :x="startX" :y="startY" :xlink:href="`#hair0${hair.type.value}`" stroke="black" stroke-width="2" :fill="hair.color"/>
-        <use :x="startX" :y="startY" :xlink:href="`#hair0${hair.type.value}`" stroke="black" stroke-width="2" fill="url(#shineColor)"/>
+        <use :x="startX" :y="startY" :xlink:href="`#hair0${hair.type.value}`" stroke="rgba(0,0,0,0.8)" stroke-width="2" :fill="hair.color"/>
+        <use :x="startX" :y="startY" :xlink:href="`#hair0${hair.type.value}`" stroke-width="0" fill="url(#shineColor)"/>
       </g>
 </template>
 <script>
@@ -27,6 +28,7 @@ import Hair02 from './hair/Hair02.vue';
 import Hair04 from './hair/Hair04.vue';
 import Hair05 from './hair/Hair05.vue';
 import Hair06 from './hair/Hair06.vue';
+import Hair07 from './hair/Hair07.vue';
 
 export default {
   components: {
@@ -36,6 +38,7 @@ export default {
     Hair04,
     Hair05,
     Hair06,
+    Hair07,
   },
   computed: {
     head() {
