@@ -1,6 +1,10 @@
 <template>
   <g>
     <defs>
+      <linearGradient id="locksColor" gradientTransform="rotate( 0)" spreadMethod="reflect">
+          <stop offset="50%" :stop-color="hair.color"/>
+          <stop offset="100%" stop-color="white"/>
+      </linearGradient>
         <radialGradient id="shineColor" cy="1%" r="1">
         <stop offset="25%" stop-color="rgba(255,255,255,0)"/>
         <stop offset="30%" stop-color="rgba(255,255,255,0.2)"/>

@@ -40,7 +40,7 @@ c10 -40 20 -80 -40 -120
 
     </defs>
     <g  v-if="type == 'front'">
-    <path :d="`
+    <!-- <path :d="`
       M${-kruinX} -${head.height.value / 3 + kruin}
 c0 60 10 100 -70 140
 c-10 -40 -20 -100 70 -140
@@ -63,8 +63,44 @@ c40 -50 40 -180 -110 -170
   c30 60 10 100 140 150
 c10 -40 -0 -150 -140 -150
 
-`"    />
+`"    /> -->
 
+<path :d="`
+      M${-kruinX} -${head.height.value / 3 + kruin}
+c0 60 10 100 -70 140
+c-10 -40 -20 -100 70 -140
+`"    />
+    <path :d="`
+      M${-kruinX} -${head.height.value / 3 + kruin}
+c0 60 10 100 -50 140
+c-10 -40 -20 -100 50 -140
+`"    />
+    <path :d="`
+      M${-kruinX} -${head.height.value / 3 + kruin}
+c0 60 20 100 -10 130
+c-10 -40 -20 -80 10 -130
+`"    />
+    <path :d="`
+      M${-kruinX} -${head.height.value / 3 + kruin}
+  c30 60 10 100 140 150
+c10 -40 -0 -150 -140 -150
+
+`"    />
+    <path :d="`
+      M${-kruinX} -${head.height.value / 3 + kruin}
+c30 120 140 100 110 170
+c40 -50 40 -180 -110 -170
+`"    />
+    <path :d="`
+      M${-kruinX} -${head.height.value / 3 + kruin}
+c30 60 10 100 100 130
+c10 -40 -20 -130 -100 -130
+`"    />
+    <path :d="`
+      M${-kruinX} -${head.height.value / 3 + kruin}
+c0 60 10 100 40 120
+c10 -40 20 -80 -40 -120
+`"    />
     </g><g v-else>
     <path  :d="`
       M0 -${head.height.value / 3 + ponyHeight}
