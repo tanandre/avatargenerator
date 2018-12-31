@@ -1,5 +1,10 @@
 # avatar-generator
 
+A simple Vue project that generates random (but reproducible) avatars.
+
+Check online:
+https://avatar-generator.netlify.com
+
 ## Project setup
 ```
 npm install
