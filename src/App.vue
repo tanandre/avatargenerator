@@ -5,7 +5,7 @@
     </v-navigation-drawer>
     <v-toolbar app fixed >
       <v-toolbar-title></v-toolbar-title>
-      <v-btn class="primary" @click="generateAvatar">Generate [g]</v-btn>
+      <v-btn class="primary" @click="generateAvatar" title="Generate random avatar (shortkey G)">Generate [g]</v-btn>
        <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn href="https://andretan.nl" icon fab><v-icon>home</v-icon></v-btn>
@@ -44,7 +44,7 @@ export default {
       if (event.defaultPrevented || event.target.nodeName === 'INPUT') {
         return;
       }
-      if (event.key === 'g') {
+      if (event.key === 'g' || event.key === 'G') {
         this.generateAvatar();
       }
     },
