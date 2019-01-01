@@ -122,7 +122,7 @@ export default {
         }
       });
       const skinColors = ['#f0c7b1', 'rgb(233, 181, 150)', 'rgb(115, 71, 43)', 'rgb(242, 171, 150)', 'rgb(150, 100, 74)', 'rgb(217, 160, 136)', 'rgb(175, 105, 53)'];
-      const hairColors = ['#701919', '#262222', '#cE9F30', '#C36D20', '#222', '#a22', '#a44', '#44a', '#  a4a', '#CB0D05', '#CB9905', '#C8B8D1'];
+      const hairColors = ['#701919', '#262222', '#cE9F30', '#C36D20', '#222', '#a22', '#CB0D05', '#CB9905', '#C8B8D1'];
 
       commit('skinColor', skinColors[randomizer.next(0, skinColors.length - 1)]);
       commit('hairColor', hairColors[randomizer.next(0, hairColors.length - 1)]);
