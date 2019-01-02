@@ -18,7 +18,7 @@ export default new Vuex.Store({
     help: {
       grid: false,
     },
-    face: createFace(),
+    face: generate(0),
   },
   mutations: {
     id(state, id) {

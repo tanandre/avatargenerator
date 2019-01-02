@@ -96,15 +96,17 @@ export function createFace() {
 
 export function generate(id) {
   const randomizer = new Randomizer(id);
-  const clone = createFace();
-  const entries = [].concat(...[clone.head, clone.eyes, clone.nose, clone.mouth, clone.ears, clone.hair, clone.brows].map(e => Object.entries(e)));
+  const face = createFace();
+  const entries = [].concat(...[face.head, face.eyes, face.nose, face.mouth, face.ears, face.hair, face.brows].map(e => Object.entries(e)));
+  face.head.color = skinColors[randomizer.next(0, skinColors.length - 1)];
+  face.hair.color = hairColors[randomizer.next(0, hairColors.length - 1)];
 
   entries.forEach((entry) => {
     if (entry[1].value !== undefined) {
-      const max = entry[1].max(clone);
-      const newValue = randomizer.next(entry[1].min(clone), max);
+      const max = entry[1].max(face);
+      const newValue = randomizer.next(entry[1].min(face), max);
       entry[1].value = newValue;
     }
   });
-  return clone;
+  return face;
 }
