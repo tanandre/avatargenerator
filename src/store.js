@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 
 import frameModule from './store/frameModule';
 
-import { createFace, generate } from './store/faceAttributes';
+import { createFace, generate } from './js/FaceGenerator';
 
 Vue.use(Vuex);
 
