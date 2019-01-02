@@ -15,7 +15,6 @@ export default {
   data() {
     return {
       angles: [-20, -50, -70, -90, -120, -140, 20, 60, 90, 110, 130, 150, 170, 190], // , 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330],
-      randomizer: new Randomizer(0),
     };
   },
   computed: {
@@ -28,7 +27,7 @@ export default {
   },
   methods: {
     hairLockRandom(angle, idx) {
-      const randomizer = new Randomizer(this.$store.state.face.id);
+      const randomizer = new Randomizer(this.$store.state.id);
       for (let i = 0; i < idx; i++) {
         randomizer.next(0, 1);
       }
@@ -48,11 +47,6 @@ export default {
     //   c10 0 10 80 30 80
     //   c0 -20 0 -80 -30 -80
     // `;
-    },
-  },
-  watch: {
-    '$store.state.face.id': function (id) {
-      this.randomizer = new Randomizer(id);
     },
   },
 };

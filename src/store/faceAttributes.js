@@ -107,6 +107,4 @@ export function generate(id) {
     }
   });
   return clone;
-  // commit('skinColor', skinColors[randomizer.next(0, skinColors.length - 1)]);
-  // commit('hairColor', hairColors[randomizer.next(0, hairColors.length - 1)]);
 }

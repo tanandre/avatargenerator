@@ -3,11 +3,11 @@
     <g  v-if="type == 'front'">
     <path :d="`
       M${-head.width.value / 4} -${head.height.value / 3 - kruin}
-c0 60 ${head.width.value / 2} 70 ${head.width.value / 4 * 3} 90
-c 20 -60 -0 -160 ${-head.width.value / 4 * 3 + 10} -130
+c0 60 ${head.width.value / 2} 70 ${head.width.value / 4 * 3+5} 90
+c 20 -60 -20 -160 ${-head.width.value / 4 * 3 + 5} -130
       M${-head.width.value / 4} -${head.height.value / 3 - kruin}
-c0 60 -10 70 -40 90
-c-20 -100 20 -120 50 -130
+c0 60 -10 70 -45 90
+c-20 -100 20 -120 55 -130
 `"    />
 
     <path fill="transparent" stroke-width="2" :d="`
@@ -16,7 +16,7 @@ c0 60 -10 70 -40 90
       M${-head.width.value / 4} -${head.height.value / 3 - kruin}
 c0 60 80 70 ${head.width.value / 4 * 3} 90
       M${-head.width.value / 4 + 20} -${head.height.value / 3 - kruin + 5}
-c20 60 70 70 ${head.width.value / 4 * 3 - 15} 90
+c20 60 70 70 ${head.width.value / 4 * 3 - 10} 90
 l-10 -10
       M${-head.width.value / 4 + 50} -${head.height.value / 3 - kruin+ 10}
 c20 60 80 70 ${head.width.value / 4 * 3 - 40} 80
