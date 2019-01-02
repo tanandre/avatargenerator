@@ -1,9 +1,9 @@
 import Randomizer from '@/util/Randomizer';
 
-import face from './faceAttributes';
+import { createFace, generate } from './faceAttributes';
 
 export default {
-  state: face,
+  state: createFace(),
   mutations: {
     id(state, id) {
       state.id = id;
@@ -18,16 +18,16 @@ export default {
   actions: {
     generate({ commit, state }, id) {
       commit('id', id);
+      const face = generate(id);
+
       const randomizer = new Randomizer(id);
       const clone = Object.assign({}, state);
       const entries = [].concat(...[clone.head, clone.eyes, clone.nose, clone.mouth, clone.ears, clone.hair, clone.brows].map(e => Object.entries(e)));
 
       entries.forEach((entry) => {
-        // console.log(entry[0], entry[1].value);
         if (entry[1].value !== undefined) {
           const max = entry[1].max(state);
           const newValue = randomizer.next(entry[1].min(state), max);
-          // console.log(entry[0], newValue);
           entry[1].value = newValue;
         }
       });
