@@ -1,8 +1,12 @@
 <template>
     <div>
       <HeadTools />
-    </div>
+      <label>
+      <input type="checkbox" v-model="$store.state.help.grid"/>
+      Grid
+      </label>
 
+    </div>
 </template>
 
 <script>

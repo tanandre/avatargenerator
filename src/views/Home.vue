@@ -1,8 +1,8 @@
 <template>
   <div>
     <Avatar/>
-    <v-textarea outline class="customTA" v-model="$store.state.face.customPath1" label="front" placeholder="custom svg path" @keydown.stop />
-    <v-textarea outline class="customTA" v-model="$store.state.face.customPath2" label="back" placeholder="custom svg path" @keydown.stop />
+    <v-textarea outline class="customTA" v-model="$store.state.customPath1" label="front" placeholder="custom svg path" @keydown.stop />
+    <v-textarea outline class="customTA" v-model="$store.state.customPath2" label="back" placeholder="custom svg path" @keydown.stop />
   </div>
 </template>
 

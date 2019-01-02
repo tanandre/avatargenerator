@@ -13,7 +13,11 @@ export default new Vuex.Store({
     face: faceModule,
   },
   state: {
-
+    customPath1: '',
+    customPath2: '',
+    help: {
+      grid: false,
+    },
   },
   mutations: {
   },

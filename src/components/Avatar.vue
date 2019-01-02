@@ -1,6 +1,6 @@
 <template>
     <svg :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" class="svg" :fill="$store.state.face.head.color">
-      <CustomPath :path="$store.state.face.customPath2"/>
+      <CustomPath :path="$store.state.customPath2"/>
       <HairBack v-if="$store.state.face.hair.show"/>
       <Shirt :position="0" :color1="$store.state.face.shirt.color1" :color2="$store.state.face.shirt.color2"/>
       <Neck />
@@ -12,8 +12,8 @@
       <Nose v-if="face.nose.show"/>
       <Mouth v-if="face.mouth.show"/>
       <Hair v-if="face.hair.show"/>
-      <CustomPath :path="$store.state.face.customPath1"/>
-      <CustomPath v-if="$store.state.face.help.grid" :path="this.faceGrid"/>
+      <CustomPath :path="$store.state.customPath1"/>
+      <CustomPath v-if="$store.state.help.grid" :path="this.faceGrid"/>
     </svg>
 </template>
 

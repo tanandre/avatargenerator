@@ -88,11 +88,6 @@ export default {
       color1: '#ff0000',
       color2: '#fff',
     },
-    customPath1: '',
-    customPath2: '',
-    help: {
-      grid: false,
-    },
   },
   mutations: {
     id(state, id) {
