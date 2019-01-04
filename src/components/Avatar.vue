@@ -1,5 +1,6 @@
 <template>
-    <svg :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" class="svg" :fill="$store.state.face.head.color">
+    <svg :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" class="svg" :fill="$store.state.face.head.color" id="avatarSvg">
+      <title>Avatar-id{{$store.state.id}}</title>
       <CustomPath :path="$store.state.customPath2"/>
       <HairBack v-if="$store.state.face.hair.show"/>
       <Shirt :position="0" :color1="$store.state.face.shirt.color1" :color2="$store.state.face.shirt.color2"/>
