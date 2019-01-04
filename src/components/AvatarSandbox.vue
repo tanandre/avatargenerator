@@ -1,24 +1,27 @@
 <template>
-    <svg :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" class="svg" :fill="$store.state.face.head.color" id="avatarSvg">
-      <title>Avatar-id{{$store.state.id}}</title>
+    <svg :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" class="svg" :fill="face.head.color" id="avatarSvg">
       <CustomPath :path="$store.state.customPath2"/>
-      <HairBack v-if="$store.state.face.hair.show" :frame="frame" :face="face"/>
-      <Shirt :position="0" :color1="$store.state.face.shirt.color1" :color2="$store.state.face.shirt.color2" :frame="frame" :face="face"/>
-      <Neck :frame="frame" :face="face"/>
-      <Shirt :position="1" :color1="$store.state.face.shirt.color1" :color2="$store.state.face.shirt.color2" :frame="frame" :face="face"/>
-      <Ears v-if="$store.state.face.ears.show" :frame="frame" :face="face"/>
-      <Head v-if="$store.state.face.head.show" :frame="frame" :face="face"/>
-      <Eyes v-if="face.eyes.show" :frame="frame" :face="face"/>
-      <Brows v-if="face.brows.show" :frame="frame" :face="face"/>
-      <Nose v-if="face.nose.show" :frame="frame" :face="face"/>
-      <Mouth v-if="face.mouth.show" :frame="frame" :face="face"/>
-      <Hair v-if="face.hair.show" :frame="frame" :face="face"/>
+      <g>
+        <title>Avatar</title>
+        <HairBack v-if="face.hair.show" :frame="frame" :face="face"/>
+        <Shirt :position="0" :color1="face.shirt.color1" :color2="face.shirt.color2" :frame="frame" :face="face"/>
+        <Neck :frame="frame" :face="face"/>
+        <Shirt :position="1" :color1="face.shirt.color1" :color2="face.shirt.color2" :frame="frame" :face="face"/>
+        <Ears v-if="face.ears.show" :frame="frame" :face="face"/>
+        <Head v-if="face.head.show" :frame="frame" :face="face"/>
+        <Eyes v-if="face.eyes.show" :frame="frame" :face="face"/>
+        <Brows v-if="face.brows.show" :frame="frame" :face="face"/>
+        <Nose v-if="face.nose.show" :frame="frame" :face="face"/>
+        <Mouth v-if="face.mouth.show" :frame="frame" :face="face"/>
+        <Hair v-if="face.hair.show" :frame="frame" :face="face"/>
+      </g>
       <CustomPath :path="$store.state.customPath1"/>
       <CustomPath v-if="$store.state.help.grid" :path="this.faceGrid"/>
     </svg>
 </template>
 
 <script>
+
 import Head from '@/components/avatar/Head.vue';
 import Eyes from '@/components/avatar/Eyes.vue';
 import Mouth from '@/components/avatar/Mouth.vue';
@@ -32,6 +35,7 @@ import Shirt from '@/components/avatar/Shirt.vue';
 import CustomPath from '@/components/avatar/CustomPath.vue';
 
 export default {
+  props: ['face', 'frameWidth', 'frameHeight'],
   components: {
     Head,
     Brows,
@@ -46,9 +50,12 @@ export default {
     CustomPath,
   },
   computed: {
+    // face() {
+    //   return generate(this.id);
+    // },
     faceGrid() {
       return `
-      m200 ${this.$store.state.frame.dimensions.height / 2 + this.head.height.value / 3 * 2}
+      m200 ${this.frame.dimensions.height / 2 + this.head.height.value / 3 * 2}
     v-${this.head.height.value}
     M${this.frame.dimensions.width / 2 - this.head.width.value / 2} ${this.frame.dimensions.height / 2}
     h${this.head.width.value}
@@ -61,19 +68,16 @@ export default {
     `;
     },
     head() {
-      return this.$store.state.face.head;
-    },
-    face() {
-      return this.$store.state.face;
+      return this.face.head;
     },
     frame() {
       return this.$store.state.frame;
     },
     startX() {
-      return (this.$store.state.frame.dimensions.width - this.$store.state.face.head.width) / 2;
+      return (this.frame.dimensions.width - this.face.head.width) / 2;
     },
     startY() {
-      return (this.$store.state.frame.dimensions.height - this.$store.state.face.head.height) / 2 + this.$store.state.face.head.offsetY;
+      return (this.frame.dimensions.height - this.face.head.height) / 2 + this.face.head.offsetY;
     },
   },
 };
