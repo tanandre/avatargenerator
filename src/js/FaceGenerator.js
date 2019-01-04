@@ -14,7 +14,7 @@ function toValue(value, _min, _max) {
 const skinColors = ['#f0c7b1', 'rgb(233, 181, 150)', 'rgb(115, 71, 43)', 'rgb(242, 171, 150)', 'rgb(150, 100, 74)', 'rgb(217, 160, 136)', 'rgb(175, 105, 53)'];
 const hairColors = ['#701919', '#262222', '#cE9F30', '#C36D20', '#222', '#a22', '#CB0D05', '#CB9905', '#C8B8D1'];
 
-export function createFace() {
+function createFace() {
   return {
     id: 0,
     head: {
@@ -94,7 +94,7 @@ export function createFace() {
   };
 }
 
-export function generate(id) {
+export default function generate(id) {
   const randomizer = new Randomizer(id);
   const face = createFace();
   const entries = [].concat(...[face.head, face.eyes, face.nose, face.mouth, face.ears, face.hair, face.brows].map(e => Object.entries(e)));
@@ -102,10 +102,11 @@ export function generate(id) {
   face.hair.color = hairColors[randomizer.next(0, hairColors.length - 1)];
 
   entries.forEach((entry) => {
-    if (entry[1].value !== undefined) {
-      const max = entry[1].max(face);
-      const newValue = randomizer.next(entry[1].min(face), max);
-      entry[1].value = newValue;
+    const faceAttribute = entry[1];
+    if (faceAttribute.value !== undefined) {
+      const max = faceAttribute.max(face);
+      const newValue = randomizer.next(faceAttribute.min(face), max);
+      faceAttribute.value = newValue;
     }
   });
   return face;
