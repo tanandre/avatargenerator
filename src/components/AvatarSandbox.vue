@@ -1,7 +1,7 @@
 <template>
-    <svg :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" class="svg" id="avatarSvg">
+    <svg :width="frame.dimensions.width" :height="frame.dimensions.height" class="svg" id="avatarSvg">
       <CustomPath :path="$store.state.customPath2"/>
-      <Avatar :frame="frame" :face="face" />
+      <Avatar :frame="frame" :face="face"/>
       <CustomPath :path="$store.state.customPath1"/>
       <CustomPath v-if="$store.state.help.grid" :path="this.faceGrid"/>
     </svg>
