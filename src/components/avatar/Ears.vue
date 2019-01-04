@@ -15,6 +15,7 @@
 </template>
 <script>
 export default {
+  props: ['frame', 'face'],
   data() {
     return {
       wide: 20,
@@ -22,18 +23,18 @@ export default {
   },
   computed: {
     head() {
-      return this.$store.state.face.head;
+      return this.face.head;
     },
     ears() {
-      return this.$store.state.face.ears;
+      return this.face.ears;
     },
     startX() {
-      return this.$store.state.frame.dimensions.width / 2;
+      return this.frame.dimensions.width / 2;
     },
     startY() {
-      return this.$store.state.frame.dimensions.height
+      return this.frame.dimensions.height
           / 2
-        + this.$store.state.face.ears.offsetY.value;
+        + this.face.ears.offsetY.value;
     },
   },
 };

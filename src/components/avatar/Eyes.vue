@@ -88,6 +88,7 @@ c 0 -10 50 -10 ${eyes.outerWidth.value} -${eyes.outerHeight.value / 5 * 2}
 <script>
 
 export default {
+  props: ['frame', 'face'],
   data() {
     return {
       whiskerHeight: 5,
@@ -95,25 +96,25 @@ export default {
   },
   computed: {
     eyes() {
-      return this.$store.state.face.eyes;
+      return this.face.eyes;
     },
     startXLeft() {
       return (
-        (this.$store.state.frame.dimensions.width
+        (this.frame.dimensions.width
           - this.eyes.wide.value)
         / 2
       );
     },
     startXRight() {
       return (
-        (this.$store.state.frame.dimensions.width
+        (this.frame.dimensions.width
           + this.eyes.wide.value)
         / 2
       );
     },
     startY() {
       return (
-        this.$store.state.frame.dimensions.height / 2
+        this.frame.dimensions.height / 2
         + this.eyes.offsetY.value
       );
     },

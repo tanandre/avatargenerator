@@ -17,22 +17,23 @@
 </template>
 <script>
 export default {
+  props: ['frame', 'face'],
   computed: {
     eyes() {
-      return this.$store.state.face.eyes;
+      return this.face.eyes;
     },
     brows() {
-      return this.$store.state.face.brows;
+      return this.face.brows;
     },
     startY() {
       return (
-        (this.$store.state.frame.dimensions.height / 2)
-        + this.$store.state.face.eyes.offsetY.value
-        - this.$store.state.face.eyes.outerHeight.value / 2 - 15
+        (this.frame.dimensions.height / 2)
+        + this.face.eyes.offsetY.value
+        - this.face.eyes.outerHeight.value / 2 - 15
       );
     },
     startX() {
-      return this.$store.state.frame.dimensions.width / 2;
+      return this.frame.dimensions.width / 2;
     },
   },
 };

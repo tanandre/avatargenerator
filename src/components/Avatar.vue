@@ -6,10 +6,10 @@
       <Shirt :position="0" :color1="$store.state.face.shirt.color1" :color2="$store.state.face.shirt.color2"/>
       <Neck />
       <Shirt :position="1" :color1="$store.state.face.shirt.color1" :color2="$store.state.face.shirt.color2"/>
-      <Ears v-if="$store.state.face.ears.show"/>
+      <Ears v-if="$store.state.face.ears.show" :frame="frame" :face="face"/>
       <Head v-if="$store.state.face.head.show" />
-      <Eyes v-if="face.eyes.show"/>
-      <Brows v-if="face.brows.show" />
+      <Eyes v-if="face.eyes.show" :frame="frame" :face="face"/>
+      <Brows v-if="face.brows.show" :frame="frame" :face="face"/>
       <Nose v-if="face.nose.show"/>
       <Mouth v-if="face.mouth.show"/>
       <Hair v-if="face.hair.show"/>
