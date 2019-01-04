@@ -12,6 +12,7 @@
 import Randomizer from '@/util/Randomizer';
 
 export default {
+  props: ['type', 'face'],
   data() {
     return {
       angles: [-20, -50, -70, -90, -120, -140, 20, 60, 90, 110, 130, 150, 170, 190], // , 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330],
@@ -19,15 +20,15 @@ export default {
   },
   computed: {
     head() {
-      return this.$store.state.face.head;
+      return this.face.head;
     },
     hair() {
-      return this.$store.state.face.hair;
+      return this.face.hair;
     },
   },
   methods: {
     hairLockRandom(angle, idx) {
-      const randomizer = new Randomizer(this.$store.state.id);
+      const randomizer = new Randomizer(this.id);
       for (let i = 0; i < idx; i++) {
         randomizer.next(0, 1);
       }

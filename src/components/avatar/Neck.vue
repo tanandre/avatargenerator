@@ -26,6 +26,7 @@
 </template>
 <script>
 export default {
+  props: ['frame', 'face'],
   data() {
     return {
       borderThickness1: 10,
@@ -39,20 +40,20 @@ export default {
 
   computed: {
     frameWidth() {
-      return this.$store.state.frame.dimensions.width;
+      return this.frame.dimensions.width;
     },
     startX() {
-      return this.$store.state.frame.dimensions.width / 2;
+      return this.frame.dimensions.width / 2;
     },
     startY() {
-      return this.$store.state.frame.dimensions.height - (40 + this.neckHeight);
+      return this.frame.dimensions.height - (40 + this.neckHeight);
     },
     width() {
-      return this.$store.state.face.head.width.value / 2;
+      return this.face.head.width.value / 2;
     },
 
     halfHeight() {
-      return this.$store.state.frame.dimensions.height / 2;
+      return this.frame.dimensions.height / 2;
     },
   },
 };

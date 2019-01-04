@@ -31,7 +31,7 @@
 </template>
 <script>
 export default {
-  props: ['type'],
+  props: ['type', 'face'],
   data() {
     return {
       ponyCurve: -10,
@@ -42,10 +42,10 @@ export default {
   },
   computed: {
     head() {
-      return this.$store.state.face.head;
+      return this.face.head;
     },
     hair() {
-      return this.$store.state.face.hair;
+      return this.face.hair;
     },
   },
 };

@@ -1,14 +1,14 @@
 <template>
   <g>
     <defs>
-      <Hair00 id="hairBack00" type="back"/>
-      <Hair01 id="hairBack01" type="back"/>
-      <Hair02 id="hairBack02" type="back"/>
-      <Hair04 id="hairBack04" type="back"/>
-      <Hair05 id="hairBack05" type="back"/>
-      <Hair06 id="hairBack06" type="back"/>
-      <Hair07 id="hairBack07" type="back"/>
-      <Hair08 id="hairBack08" type="back"/>
+      <Hair00 id="hairBack00" :face="face" type="back"/>
+      <Hair01 id="hairBack01" :face="face" type="back"/>
+      <Hair02 id="hairBack02" :face="face" type="back"/>
+      <Hair04 id="hairBack04" :face="face" type="back"/>
+      <Hair05 id="hairBack05" :face="face" type="back"/>
+      <Hair06 id="hairBack06" :face="face" type="back"/>
+      <Hair07 id="hairBack07" :face="face" type="back"/>
+      <Hair08 id="hairBack08" :face="face" type="back"/>
       </defs>
         <use :x="startX" :y="startY" :xlink:href="`#hairBack0${hair.type.value}`" stroke="black" stroke-width="2" :fill="hair.color"/>
         <use :x="startX" :y="startY" :xlink:href="`#hairBack0${hair.type.value}`" stroke="black" stroke-width="2" fill="rgba(0,0,0,0.1)"/>
@@ -25,6 +25,7 @@ import Hair07 from './hair/Hair07.vue';
 import Hair08 from './hair/Hair08.vue';
 
 export default {
+  props: ['frame', 'face'],
   components: {
     Hair00,
     Hair01,
@@ -37,20 +38,20 @@ export default {
   },
   computed: {
     head() {
-      return this.$store.state.face.head;
+      return this.face.head;
     },
     hair() {
-      return this.$store.state.face.hair;
+      return this.face.hair;
     },
     startX() {
       return (
-        (this.$store.state.frame.dimensions.width)
+        (this.frame.dimensions.width)
         / 2
       );
     },
     startY() {
       return (
-        this.$store.state.frame.dimensions.height / 2
+        this.frame.dimensions.height / 2
       );
     },
   },

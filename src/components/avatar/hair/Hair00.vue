@@ -26,12 +26,13 @@ c -5 -10 -10 -20 10 -35
 </template>
 <script>
 export default {
+  props: ['type', 'face'],
   computed: {
     head() {
-      return this.$store.state.face.head;
+      return this.face.head;
     },
     hair() {
-      return this.$store.state.face.hair;
+      return this.face.hair;
     },
   },
 };

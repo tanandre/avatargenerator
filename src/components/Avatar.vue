@@ -2,17 +2,17 @@
     <svg :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" class="svg" :fill="$store.state.face.head.color" id="avatarSvg">
       <title>Avatar-id{{$store.state.id}}</title>
       <CustomPath :path="$store.state.customPath2"/>
-      <HairBack v-if="$store.state.face.hair.show"/>
-      <Shirt :position="0" :color1="$store.state.face.shirt.color1" :color2="$store.state.face.shirt.color2"/>
-      <Neck />
-      <Shirt :position="1" :color1="$store.state.face.shirt.color1" :color2="$store.state.face.shirt.color2"/>
+      <HairBack v-if="$store.state.face.hair.show" :frame="frame" :face="face"/>
+      <Shirt :position="0" :color1="$store.state.face.shirt.color1" :color2="$store.state.face.shirt.color2" :frame="frame" :face="face"/>
+      <Neck :frame="frame" :face="face"/>
+      <Shirt :position="1" :color1="$store.state.face.shirt.color1" :color2="$store.state.face.shirt.color2" :frame="frame" :face="face"/>
       <Ears v-if="$store.state.face.ears.show" :frame="frame" :face="face"/>
-      <Head v-if="$store.state.face.head.show" />
+      <Head v-if="$store.state.face.head.show" :frame="frame" :face="face"/>
       <Eyes v-if="face.eyes.show" :frame="frame" :face="face"/>
       <Brows v-if="face.brows.show" :frame="frame" :face="face"/>
-      <Nose v-if="face.nose.show"/>
-      <Mouth v-if="face.mouth.show"/>
-      <Hair v-if="face.hair.show"/>
+      <Nose v-if="face.nose.show" :frame="frame" :face="face"/>
+      <Mouth v-if="face.mouth.show" :frame="frame" :face="face"/>
+      <Hair v-if="face.hair.show" :frame="frame" :face="face"/>
       <CustomPath :path="$store.state.customPath1"/>
       <CustomPath v-if="$store.state.help.grid" :path="this.faceGrid"/>
     </svg>

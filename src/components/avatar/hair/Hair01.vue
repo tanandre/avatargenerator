@@ -18,12 +18,13 @@ c-40 -150 50 -120 ${head.width.value / 2 - 5} -${110 + head.height.value / 3}
 </template>
 <script>
 export default {
+  props: ['type', 'face'],
   computed: {
     head() {
-      return this.$store.state.face.head;
+      return this.face.head;
     },
     hair() {
-      return this.$store.state.face.hair;
+      return this.face.hair;
     },
   },
 };

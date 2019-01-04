@@ -10,14 +10,14 @@
         <stop offset="30%" stop-color="rgba(255,255,255,0.2)"/>
         <stop offset="40%" :stop-color="'rgba(255,255,255,0)'"/>
       </radialGradient>
-      <Hair00 id="hair00" />
-      <Hair01 id="hair01" />
-      <Hair02 id="hair02" />
-      <Hair04 id="hair04" />
-      <Hair05 id="hair05" />
-      <Hair06 id="hair06" type="front"/>
-      <Hair07 id="hair07" type="front"/>
-      <Hair08 id="hair08" type="front"/>
+      <Hair00 id="hair00" :face="face"/>
+      <Hair01 id="hair01" :face="face"/>
+      <Hair02 id="hair02" :face="face"/>
+      <Hair04 id="hair04" :face="face"/>
+      <Hair05 id="hair05" :face="face"/>
+      <Hair06 id="hair06" :face="face" type="front"/>
+      <Hair07 id="hair07" :face="face" type="front"/>
+      <Hair08 id="hair08" :face="face" type="front"/>
 
       <g id="hair03">
       </g>
@@ -38,6 +38,7 @@ import Hair07 from './hair/Hair07.vue';
 import Hair08 from './hair/Hair08.vue';
 
 export default {
+  props: ['frame', 'face'],
   components: {
     Hair00,
     Hair01,
@@ -50,20 +51,20 @@ export default {
   },
   computed: {
     head() {
-      return this.$store.state.face.head;
+      return this.face.head;
     },
     hair() {
-      return this.$store.state.face.hair;
+      return this.face.hair;
     },
     startX() {
       return (
-        (this.$store.state.frame.dimensions.width)
+        (this.frame.dimensions.width)
         / 2
       );
     },
     startY() {
       return (
-        this.$store.state.frame.dimensions.height / 2
+        this.frame.dimensions.height / 2
       );
     },
   },

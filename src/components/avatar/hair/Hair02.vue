@@ -12,15 +12,16 @@ c-20 -${head.height.value / 3 + 50} 40 -${head.height.value / 3 + 60} ${head.wid
 </template>
 <script>
 export default {
+  props: ['type', 'face'],
   computed: {
     chindWidthMargin() {
-      return (this.$store.state.face.head.chinWidth.value - 140) / 4;
+      return (this.face.head.chinWidth.value - 140) / 4;
     },
     head() {
-      return this.$store.state.face.head;
+      return this.face.head;
     },
     hair() {
-      return this.$store.state.face.hair;
+      return this.face.hair;
     },
   },
 };

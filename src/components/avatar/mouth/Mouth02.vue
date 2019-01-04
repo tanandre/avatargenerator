@@ -18,9 +18,10 @@
 </template>
 <script>
 export default {
+  props: ['face'],
   computed: {
     mouth() {
-      return this.$store.state.face.mouth;
+      return this.face.mouth;
     },
     underlipHeight() {
       return this.mouth.height.value - this.mouth.upperLip.value;

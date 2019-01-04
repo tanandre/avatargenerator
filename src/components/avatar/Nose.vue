@@ -24,20 +24,21 @@
 </template>
 <script>
 export default {
+  props: ['frame', 'face'],
   computed: {
     nose() {
-      return this.$store.state.face.nose;
+      return this.face.nose;
     },
     startX() {
       return (
-        (this.$store.state.frame.dimensions.width) / 2
+        (this.frame.dimensions.width) / 2
       );
     },
     startY() {
       return (
-        this.$store.state.frame.dimensions.height
+        this.frame.dimensions.height
           / 2
-        + this.$store.state.face.nose.offsetY.value
+        + this.face.nose.offsetY.value
       );
     },
   },

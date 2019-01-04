@@ -10,9 +10,10 @@
 </template>
 <script>
 export default {
+  props: ['face'],
   computed: {
     head() {
-      return this.$store.state.face.head;
+      return this.face.head;
     },
   },
 };

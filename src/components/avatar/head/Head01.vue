@@ -14,9 +14,10 @@ c ${head.width.value - head.chinWidth.value + 5} -${(head.height.value - head.ch
 </template>
 <script>
 export default {
+  props: ['face'],
   computed: {
     head() {
-      return this.$store.state.face.head;
+      return this.face.head;
     },
   },
 };

@@ -30,7 +30,7 @@ l ${borderThickness1} -${borderThickness2}`" />
 </template>
 <script>
 export default {
-  props: ['color1', 'color2', 'position'],
+  props: ['color1', 'color2', 'position', 'frame', 'face'],
   data() {
     return {
       width: 125,
@@ -44,10 +44,10 @@ export default {
   },
   computed: {
     startX() {
-      return this.$store.state.frame.dimensions.width / 2;
+      return this.frame.dimensions.width / 2;
     },
     startY() {
-      return this.$store.state.frame.dimensions.height;
+      return this.frame.dimensions.height;
     },
   },
 };

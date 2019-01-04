@@ -28,9 +28,9 @@
               fill="url(#teethWhite)"
         />
       </g>
-      <Mouth00 id="mouth00" />
-      <Mouth01 id="mouth01" />
-      <Mouth02 id="mouth02" />
+      <Mouth00 id="mouth00" :face="face"/>
+      <Mouth01 id="mouth01" :face="face"/>
+      <Mouth02 id="mouth02" :face="face"/>
 
       <clipPath id="testMask">
         <rect :x="-mouth.width.value / 2" :y="-mouth.height.value/2" :width="mouth.width.value" :height="mouth.height.value" />
@@ -51,6 +51,7 @@ import Mouth01 from './mouth/Mouth01.vue';
 import Mouth02 from './mouth/Mouth02.vue';
 
 export default {
+  props: ['frame', 'face'],
   components: {
     Mouth00,
     Mouth01,
@@ -58,17 +59,17 @@ export default {
   },
   computed: {
     mouth() {
-      return this.$store.state.face.mouth;
+      return this.face.mouth;
     },
     startX() {
       return (
-        this.$store.state.frame.dimensions.width / 2
+        this.frame.dimensions.width / 2
       );
     },
     startY() {
       return (
-        this.$store.state.frame.dimensions.height / 2
-        + this.$store.state.face.mouth.offsetY.value
+        this.frame.dimensions.height / 2
+        + this.face.mouth.offsetY.value
       );
     },
   },

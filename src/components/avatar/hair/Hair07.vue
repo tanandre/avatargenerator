@@ -121,7 +121,7 @@ c10 -40 20 -80 -40 -120
 </template>
 <script>
 export default {
-  props: ['type'],
+  props: ['type', 'face'],
   data() {
     return {
       kruin: 20,
@@ -134,10 +134,10 @@ export default {
   },
   computed: {
     head() {
-      return this.$store.state.face.head;
+      return this.face.head;
     },
     hair() {
-      return this.$store.state.face.hair;
+      return this.face.hair;
     },
   },
 };
