@@ -3,9 +3,7 @@
 </template>
 
 <script>
-function rnd(start, end) {
-  return Math.floor(start + Math.random() * (end - start + 1));
-}
+import { generateId, download } from '@/js/actions';
 
 export default {
   name: 'App',
@@ -18,11 +16,10 @@ export default {
         return;
       }
       if (event.key === 'g' || event.key === 'G') {
-        this.generateAvatar();
+        generateId(this.$router);
+      } else if ((event.key === 'd' || event.key === 'D') && event.shiftKey) {
+        download('avatarSvg');
       }
-    },
-    generateAvatar() {
-      this.$router.push({ params: { id: rnd(0, Number.MAX_SAFE_INTEGER) } });
     },
   },
 };

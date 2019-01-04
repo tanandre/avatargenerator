@@ -18,7 +18,6 @@
 
   <div>
     <AvatarSandbox :face="$store.state.face" :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" />
-    <AvatarFrame :id="$store.state.id" :width="$store.state.frame.dimensions.width" :height="$store.state.frame.dimensions.height" />
     <v-textarea outline class="customTA" v-model="$store.state.customPath1" label="front" placeholder="custom svg path" @keydown.stop />
     <v-textarea outline class="customTA" v-model="$store.state.customPath2" label="back" placeholder="custom svg path" @keydown.stop />
   </div>
@@ -29,33 +28,22 @@
 
 <script>
 import Form from '@/components/Form.vue';
+import { generateId, download } from '@/js/actions';
 
 import AvatarSandbox from '@/components/AvatarSandbox.vue';
-import AvatarFrame from '@/components/AvatarFrame.vue';
 
-function rnd(start, end) {
-  return Math.floor(start + Math.random() * (end - start + 1));
-}
 
 export default {
   components: {
     Form,
     AvatarSandbox,
-    AvatarFrame,
   },
   methods: {
     generateAvatar() {
-      this.$router.push({ name: 'avatar', params: { id: rnd(0, Number.MAX_SAFE_INTEGER) } });
+      generateId(this.$router);
     },
     download() {
-      console.log('download');
-      const svg = document.getElementById('avatarSvg');
-      const serializer = new XMLSerializer();
-      const svg_blob = new Blob([serializer.serializeToString(svg)],
-        { type: 'image/svg+xml' });
-      const url = URL.createObjectURL(svg_blob);
-      window.location = url;
-      // window.open(url, 'svg_win');
+      download('avatarSvg');
     },
   },
 };

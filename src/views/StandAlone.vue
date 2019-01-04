@@ -7,7 +7,6 @@
 <script>
 import AvatarFrame from '@/components/AvatarFrame.vue';
 
-
 export default {
   components: {
     AvatarFrame,
