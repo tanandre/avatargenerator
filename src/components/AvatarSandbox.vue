@@ -12,7 +12,7 @@ import Avatar from './Avatar.vue';
 import CustomPath from '@/components/avatar/CustomPath.vue';
 
 export default {
-  props: ['face', 'frameWidth', 'frameHeight'],
+  props: ['face', 'width', 'height'],
   components: {
     Avatar,
     CustomPath,
@@ -36,7 +36,12 @@ export default {
       return this.face.head;
     },
     frame() {
-      return this.$store.state.frame;
+      return {
+        dimensions: {
+          width: this.width,
+          height: this.height,
+        },
+      };
     },
   },
 };
