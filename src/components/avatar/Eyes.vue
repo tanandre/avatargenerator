@@ -75,11 +75,11 @@ c 0 -10 50 -10 ${eyes.outerWidth.value} -${eyes.outerHeight.value / 5 * 2}
       </clipPath>
     </defs>>
     <g>
-      <use :x="startXLeft" :y="startY" :xlink:href="`#eyeBall0${eyes.irisType.value}`" style="clip-path: url(#eyeMaskLeft);" />
+      <use :x="startXLeft" :y="startY" :xlink:href="`#eyeBall0${eyes.irisType.value}`" style="clip-path: url(#eyeMaskLeft); -webkit-clip-path: url(#eyeMaskLeft);" />
       <use :x="startXLeft" :y="startY" xlink:href="#eyeOutlineTop00" stroke="black" stroke-width="1" fill="#000" />
     </g>
       <g>
-      <use :x="startXRight" :y="startY" :xlink:href="`#eyeBall0${eyes.irisType.value}`" style="clip-path: url(#eyeMaskRight);" />
+      <use :x="startXRight" :y="startY" :xlink:href="`#eyeBall0${eyes.irisType.value}`" style="clip-path: url(#eyeMaskRight); -webkit-clip-path: url(#eyeMaskRight);" />
       <use :x="-startXRight" :y="startY" xlink:href="#eyeOutlineTop00" stroke="black" stroke-width="1" transform="scale(-1, 1)" fill="#000"/>
     </g>
   </g>

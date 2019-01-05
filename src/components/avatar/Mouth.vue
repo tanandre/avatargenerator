@@ -41,7 +41,7 @@
 
     </defs>
     <!-- <use :x="`${startX}`" :y="`${startY}`" xlink:href="#teeth00" :style="`clip-path: url(#testMask);`"/> -->
-    <use :x="`${startX}`" :y="`${startY}`" xlink:href="#teeth00" :style="`clip-path: url(#mouthMask);`"/>
+    <use :x="`${startX}`" :y="`${startY}`" xlink:href="#teeth00" :style="`clip-path: url(#mouthMask); -webkit-clip-path: url(#mouthMask);`"/>
     <use :x="`${startX}`" :y="`${startY}`" :xlink:href="`#mouth0${mouth.type.value}`" stroke="rgb(0,0,0)" fill="transparent"/>
   </g>
 </template>
