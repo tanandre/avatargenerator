@@ -5,7 +5,11 @@ A simple Vue project that generates random (but reproducible) avatars. A project
 Check online:
 https://avatar-generator.netlify.app
 
+Screenshot:
 ![Screen shot](/avatarg.png?raw=true "Avatar Generator")
+
+Video of usage:
+![Screen recording](/avatarg1.gif?raw=true "Avatar Generator")
 
 
 ## Project setup
