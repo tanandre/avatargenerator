@@ -1,9 +1,12 @@
 # avatar-generator
 
-A simple Vue project that generates random (but reproducible) avatars.
+A simple Vue project that generates random (but reproducible) avatars. A project to learn how SVG and paths work while using some of my artistic talent :).
 
 Check online:
-https://avatar-generator.netlify.com
+https://avatar-generator.netlify.app
+
+![Screen shot](/avatarg.png?raw=true "Avatar Generator")
+
 
 ## Project setup
 ```
